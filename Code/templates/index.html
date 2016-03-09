@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MashTub.Pi</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- jQuery and Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  </head>
+
+  <script>
+    $(document).ready(function(){
+      setInterval(function(){
+        $("#screen").load("/get_temperature")
+      }, 2000);
+
+      $('#btnSignUp').click(function(){
+        $.ajax({
+          url: "/set_temperature",
+          data: $("form").serialize(),
+          type: "POST",
+          success: function(response){
+            console.log(response);
+          },
+          error: function(error){
+            console.log(error);
+          }
+        });
+      });
+
+    });
+
+    function Edit(elm) {
+      console.log($(elm).attr('data-id'));
+    }
+  </script>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="/show_select_beer">Add beer</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">MashTub.Pi</h3>
+      </div>
+    </div>
+
+    <div class="list-group">
+      <a data-id="1" onclick="Edit(this)" class="list-group-item">Helles</a>
+      <a data-id="2" onclick="Edit(this)" class="list-group-item">Pils</a>
+    </div>
+
+    <p>Current temperature</p>
+    <div id="screen"></div>
+    <form id="set_temp">
+      Set teperature:<br>
+      <input type="number" name="temperature" min="1" max="90">
+      <button id="btnSignUp" type="button">Set temperature</button>
+    </form>
+
+  </body>
+
+</html>
