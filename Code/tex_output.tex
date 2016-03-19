@@ -11,6 +11,8 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 
+\usepackage{bigstrut}
+
 %Hyperlinks innerhalb des PDF Dokuments
 \usepackage[bookmarks,
 ngerman,
@@ -26,12 +28,16 @@ pdfauthor={Stephan Mertens},
 %um text einzufaerben
 \usepackage{color}
 
+%tabular zeug
+\usepackage{dcolumn}
+
 % Fuer zusaaetzliche Zeichen
 \usepackage{textcomp}
 \usepackage{wasysym}
 \usepackage{marvosym}
 
 \begin{document}
+	%Header
 	\begin{minipage}{0.70\textwidth}
 		{\large \textbf{Sudprotokoll: Ingwer-Zitronengras-Ale}}
 	\end{minipage}
@@ -39,4 +45,12 @@ pdfauthor={Stephan Mertens},
 		{\large \textbf{am \today}}
 	\end{minipage}
 	\rule{\textwidth}{1pt}
+	%
+	%Schuettung
+	\paragraph{Schüttung:}\begin{tabular}[t]{m{8cm} m{2cm} m{1cm}}
+		Pilsener Malz & 1,4 & kg\bigstrut\\
+		Sauermalz & 0,1 & kg\bigstrut\\
+		Haferflocken & 0,05 & kg \bigstrut\\ \hline
+		Gesamtschüttung & 1,55 & kg\bigstrut
+	\end{tabular}
 \end{document}
