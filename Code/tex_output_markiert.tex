@@ -106,6 +106,7 @@ pdfauthor={Stephan Mertens},
 		ylabel={Temperatur ($\vartheta$) / $^\circ C$},
 		xmin=0,		xmax=175,
 		ymin=40,	ymax=100,
+		legend pos = north west,
 		]
 		\addplot [mark=none, color=blue] table[x=t, y=theta] {maischeverlauf_soll.csv};
 		\addplot [mark=none, color=red] table[x=t, y=theta] {maischeverlauf_ist.csv};
