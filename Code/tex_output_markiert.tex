@@ -1,0 +1,153 @@
+\documentclass[12pt,oneside,a4paper]{scrartcl}
+%Einstellungen der Seitenraender
+\usepackage[left=1.5cm,right=1.5cm,top=2cm,bottom=2.5cm]{geometry}
+
+\usepackage{ngerman}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage[pdftex]{graphicx}
+
+%Zum Erstellen von Diagrammen
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\usepackage{bigstrut}
+
+%Hyperlinks innerhalb des PDF Dokuments
+\usepackage[bookmarks,
+ngerman,
+pageanchor,
+hyperindex,
+hidelinks,
+pdffitwindow,
+pdftitle={Sudprotokoll: Ingwer-Ale / Waffelmania},
+pdfauthor={Stephan Mertens},
+]{hyperref}
+\usepackage{bookmark}
+
+%um text einzufaerben
+\usepackage{color}
+
+%tabular zeug
+\usepackage{dcolumn}
+
+% Fuer zusaaetzliche Zeichen
+\usepackage{textcomp}
+\usepackage{wasysym}
+\usepackage{marvosym}
+
+\begin{document}
+%Header
+	\begin{minipage}[c]{0.70\textwidth}
+		\section*{\hspace{-.4cm}Sudprotokoll: {\color{green}Ingwer-Ale} / {\color{green}Waffelmania}}
+	\end{minipage}
+	\begin{minipage}[c]{0.29\textwidth}
+		\subsection*{am \today}
+	\end{minipage}
+	\rule{\textwidth}{1pt}
+%
+\subsection*{Zutaten}
+%
+%Schuettung
+\paragraph{Schüttung:}
+	\begin{tabular}[t]{m{8cm} m{2cm} m{1cm}}
+		{\color{green}Pilsener Malz} & {\color{green}1,4} & kg\bigstrut\\
+		{\color{green}Sauermalz} & {\color{green}0,1} & kg\bigstrut\\
+		{\color{green}Haferflocken} & {\color{green}0,05} & kg \bigstrut\\ \hline
+		Gesamtschüttung & {\color{red}1,55} & kg\bigstrut
+	\end{tabular}\\
+
+\vspace{.25cm}
+\hspace{1cm}Angestrebte Stammwürze: {\color{green}9} °P
+%
+%Hopfung
+\paragraph{Hopfung:}
+	\begin{tabular}[t]{m{2cm} m{5cm} m{0.5cm} m{1cm} m{0.5cm} m{1cm}}
+		Bitterhopen: & {\color{green}Magnum} & {\color{green}10} & g & {\color{green}12,2} & \% $\alpha$ \\
+		%Aromahopfen: & & & g & &  \% $\alpha$
+	\end{tabular}\\
+
+\vspace{.25cm}
+\hspace{1cm}Errechnete Bittere: {\color{red}32} IBU
+%
+%Hefe
+\paragraph{Hefe:}
+	{\color{green}Safbrew US-05}
+%
+%Sudverlauf
+\subsection*{Sudverlauf - Infusionsverfahren}	
+%
+%Maischen
+\paragraph{Maischen:}
+	\begin{tabbing}\hspace{1cm} \=
+		\hspace{1cm} \= \hspace{1cm} \=\hspace{1cm} \=\hspace{1cm} \=\hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \kill
+		\> {\color{green}8}l vorlegen bei {\color{green}64}$^\circ C$.\\
+		%\> \> Aufheizen auf 35$^ \circ C$.\\
+		%\> \textit{Gummi/Glucanaserast} für Minuten von - Uhr.\\
+		%\> \> Aufheizen auf 44$^\circ C$.\\
+		%\> \textit{Ferulasäurerast} für Minuten von - Uhr.\\
+		%\> \> Aufheizen auf 52$^\circ C$.\\
+		%\> \textit{Eiweisrast} für Minuten von - Uhr.\\
+		%\> \> Aufheizen auf 64\\
+		\> \textit{Maltose-/$\beta$-Amylaserast} für {\color{green}40} Minuten von {\color{red}13:10} - {\color{red}13:55} Uhr.\\
+		\> \> Aufheizen auf 72$^\circ C$.\\
+		\> \textit{Verzuckerungs-/$\alpha$-Amylaserast} für {\color{green}60} Minuten von {\color{red}14:05} - {\color{green}15:05} Uhr.\\
+		\> \> \> Jodprobe: \> \> {\color{green}\Square} positiv \> \> {\color{green}\CheckedBox} negativ\\
+		\> \> Aufheizen auf 78$^\circ C$.\\
+		\> \textit{Inaktivierungsrast} für {\color{green}10} Minuten von {\color{red}15:10} - {\color{green}15:20} Uhr.\\\\
+		\> Kommentar: \>\>\> {\color{green}Etwas grob geschrotet; Haferflocken erst um 14:40 Uhr zugeben}
+	\end{tabbing}
+	\begin{center}
+		\begin{tikzpicture}
+		\begin{axis}[width=1\textwidth,height=0.3\textheight,
+		grid=both,
+		grid style = dashed,
+		xlabel={Zeit (t) / Minuten},
+		ylabel={Temperatur ($\vartheta$) / $^\circ C$},
+		xmin=0,		xmax=175,
+		ymin=40,	ymax=100,
+		]
+		\addplot [mark=none, color=blue] table[x=t, y=theta] {maischeverlauf_soll.csv};
+		\addplot [mark=none, color=red] table[x=t, y=theta] {maischeverlauf_ist.csv};
+		\legend{soll,ist}
+		\end{axis}
+		\end{tikzpicture}
+		\end{center}
+%
+%Läutern
+\paragraph{Läutern:} von {\color{red}14:30} - {\color{red}16:10} Uhr.
+	\begin{tabbing}
+		\hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \=\hspace{1cm} \=\hspace{1cm} \=\hspace{1cm} \= \kill
+		\> {\color{green}1}l Wasser vorlegen.\\
+		\> \> 1. Nachguss \> \> {\color{green}3} l\\
+		\> \> 2. Nachguss \> \> {\color{green}2,5} l\\
+		\> \> \> Aufhacken: \> \> {\color{green}\CheckedBox} ja \> \> {\color{green}\Square} nein\\\\
+		\> Würze: \> \> \> {\color{green}3,5}$^\circ P$ \> bei \> {\color{green}77}$^\circ C$ \> $\Rightarrow$ \> {\color{red}10}$^\circ P$\\
+		\> Glattwasser: \> \> \> {\color{green}2}$^\circ P$ \> bei \> {\color{green}48}$^\circ C$ \> $\Rightarrow$ \> {\color{red}4,5}$^\circ P$\\\\
+		\> Kommentar: \> \> \> {\color{green}ca. $\frac{3}{4}$l auf den Boden gekippt.}
+	\end{tabbing}
+%
+%Würzekochung
+\paragraph{Würzekuchung:} für {\color{green}60} Minuten von {\color{red}16:25} - {\color{red}17:28} Uhr.
+	\begin{tabbing}
+		\hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \kill
+		\> 100g geriebener Ingwer 15 Minuten vor Kochende zugegeben und bei Kochende entfernt\\\\
+		\> Kommentar: \> \> \> {\color{green}kein einziges mal übergekocht}
+	\end{tabbing}
+%
+%Whirpool
+\paragraph{Whirpoolrast:} von {\color{red}17:32} - {\color{red}17:55} Uhr.
+	\begin{tabbing}
+		\hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \kill
+		\> 100g geriebener Ingwer in den Whirpool gegeben\\\\
+		\> Kommentar: \> \> \> {\color{green}NT hat einige Ingwerstückchen enthalten}\\
+		\> \> \> \> {\color{green}NT1l Wasser in die Ausschlagwürze gekippt $\Rightarrow$ 9l}\\
+		\> \> Ausschlagwürze:\> \> \> \> \>  {\color{green}5}$^\circ P$ \> bei \> {\color{green}74}$^\circ C$ \> $\Rightarrow$ \> {\color{red}11}$^\circ P$\\
+		\> \> Verdünnen: \> \> \> \> \> $({\color{green}9}l \cdot {\color{red}11}^\circ P)/({\color{red}9}^\circ P)={\color{red}11}l$\\
+		\> \> Sudhausausbeute: \> \> \> \> \> {\color{red}65} \% mit 11l\\
+		\> \> Geschätzter Alkoholgehalt: \> \> \> \> \> {\color{red}3,6}\% Vol.
+	\end{tabbing}
+%
+%Hefegabe
+\paragraph{Hefegabe} und $O_2$-Gabe um {\color{green}21:30} Uhr.
+\end{document}
