@@ -26,7 +26,11 @@ def alkoholgehalt(extrakt, restextrakt):
 
 
 def zucker(co2menge):
-    pass
+    # Annahme 1: Bei Raumtemperatur sind 2g CO2 geloest.
+    # Angaben sind g/l
+    zuckergabe = (co2menge - 2) / 0.46285991
+    zuckergabe = round(zuckergabe, 1)
+    pass zuckergabe
 
 
 def ibu(hopfenmenge, alphasaeure, kochdauer, ausschlagwuerze, vol):
