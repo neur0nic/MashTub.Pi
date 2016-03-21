@@ -30,7 +30,7 @@ def zucker(co2menge):
     # Angaben sind g/l
     zuckergabe = (co2menge - 2) / 0.46285991
     zuckergabe = round(zuckergabe, 1)
-    pass zuckergabe
+    return zuckergabe
 
 
 def ibu(hopfenmenge, alphasaeure, kochdauer, ausschlagwuerze, vol):
