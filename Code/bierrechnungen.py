@@ -3,6 +3,8 @@
 
 def spindel(plato, theta):
     # geeichz auf 20°C
+    dichte = {8: , 9: , 10: , 11: , 12: , 13: , 14: , 15: , 16: , 17: , 18: ,
+              19: , 20: , 21: , 22: , 23: , 24: , 25: }
     pass
 
 
@@ -73,9 +75,10 @@ def ibu(hopfenmenge, alphasaeure, kochdauer, ausschlagwuerze, vol):
     be = round(be, 1)
     return be
 
+v = 'Zuckergabe zum Jungbier' + str(zucker(5.5)) + 'g/l\n'
 w = 'Volumen der Anstellwürze: ' + str(mischungskreuz(9, 11, 10)) + ' l\n'
 x = 'Sudhausausbeute: ' + str(sudhausausbeute(11, 9, 1.55)) + ' %\n'
 y = 'Alkoholgehalt: ' + str(alkoholgehalt(13, 3)) + ' %Vol\n'
 z = 'Bitter: ' + str(ibu(20, 7.1, 51, 9.5, 10)) + ' IBU'
 
-print('---\n', w, x, y, z)
+print('---\n', v, w, x, y, z)
