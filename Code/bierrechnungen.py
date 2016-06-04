@@ -75,7 +75,7 @@ def spindel(plato, theta):
     while plato > stammw[j]:
         j += 1
     plato_echt = table[j][i]
-    palto_echt = round(plato_echt, 1)
+    plato_echt = round(plato_echt, 1)
     return plato_echt
 
 
@@ -90,6 +90,12 @@ def sudhausausbeute(vol_ist, extrakt, schuettung):
     ausbeute = (vol_ist * extrakt) / schuettung
     ausbeute = round(ausbeute, 1)
     return ausbeute
+
+
+def stammw(schuettung, vol, gesch_sudhausausbeute):
+    # Zu erwartende Stammwürze
+    extrakt = (gesch_sudhausausbeute * schuettung) / vol
+    return extrakt
 
 
 def alkoholgehalt(extrakt, restextrakt):
@@ -150,7 +156,8 @@ u = 'Stammwürze: ' + str(spindel(10, 80)) + ' °P\n'
 v = 'Zuckergabe zum Jungbier: ' + str(zucker(5.5)) + ' g/l\n'
 w = 'Volumen der Anstellwürze: ' + str(mischungskreuz(9, 11, 10)) + ' l\n'
 x = 'Sudhausausbeute: ' + str(sudhausausbeute(11, 9, 1.55)) + ' %\n'
+x2 = 'Erwartete Stammwürze: ' + str(stammw(2.4, 10, 60)) + '°P\n'
 y = 'Alkoholgehalt: ' + str(alkoholgehalt(13, 3)) + ' %Vol\n'
 z = 'Bitter: ' + str(ibu(20, 7.1, 51, 9.5, 10)) + ' IBU'
 
-print('---\n', u, v, w, x, y, z)
+print('---\n', u, v, w, x, x2, y, z)
