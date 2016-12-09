@@ -20,7 +20,7 @@ pageanchor,
 hyperindex,
 hidelinks,
 pdffitwindow,
-pdftitle={Sudprotokoll: Ingwer-Ale / Waffelmania},
+pdftitle={Sudprotokoll: Bierstyle / Biername},
 pdfauthor={Stephan Mertens},
 ]{hyperref}
 \usepackage{bookmark}
@@ -31,15 +31,28 @@ pdfauthor={Stephan Mertens},
 %tabular zeug
 \usepackage{dcolumn}
 
-% Fuer zusaaetzliche Zeichen
+% Fuer zusaetzliche Zeichen
 \usepackage{textcomp}
 \usepackage{wasysym}
 \usepackage{marvosym}
+\usepackage{siunitx}
+\sisetup{
+	locale = DE ,
+	per-mode = symbol
+}
+\DeclareSIUnit[number-unit-product = {\,}]\IBU{IBU}
+\DeclareSIUnit[number-unit-product = {\,}]\plato{^\circ P}
+\DeclareSIUnit[number-unit-product = {\,}]\alfa{\percent\,\alpha}
+\DeclareSIUnit[number-unit-product = { }]\Min{Minuten}
+
+
+% Fuer die Kommentare
+\usepackage{changepage}
 
 \begin{document}
 %Header
 	\begin{minipage}[c]{0.70\textwidth}
-		\section*{\hspace{-.4cm}Sudprotokoll: Ingwer-Ale / Waffelmania}
+		\section*{\hspace{-.4cm}Sudprotokoll: Bierstyle / Biername}
 	\end{minipage}
 	\begin{minipage}[c]{0.29\textwidth}
 		\subsection*{am \today}
@@ -51,29 +64,36 @@ pdfauthor={Stephan Mertens},
 %Schuettung
 \paragraph{Schüttung:}
 	\begin{tabular}[t]{m{8cm} m{2cm} m{1cm}}
-		Pilsener Malz & 1,4 & kg\bigstrut\\
-		Sauermalz & 0,1 & kg\bigstrut\\
-		Haferflocken & 0,05 & kg \bigstrut\\ \hline
-		Gesamtschüttung & 1,55 & kg\bigstrut
+		Malz 1 & \num{666} & \si{\kilogram}\bigstrut\\
+		Malz 2 & \num{666} & \si{\kilogram}\bigstrut\\
+		Malz 3 & \num{666} & \si{\kilogram} \bigstrut\\ \hline
+		Hauptschüttung & \num{666} & \si{\kilogram}\bigstrut\\
+		&&\\
+		Malz 4 & \num{666} & \si{\kilogram}\bigstrut\\
+		Malz 5 & \num{666} & \si{\kilogram}\bigstrut\\
+		Malz 6 & \num{666} & \si{\kilogram} \bigstrut\\ \hline
+		Zweitschüttung & \num{666} & \si{\kilogram}\bigstrut\\\hline\hline
+		Gesamtschüttung & \num{666} & \si{\kilogram}\bigstrut
 	\end{tabular}\\
 
 \vspace{.25cm}
-\hspace{1cm}Angestrebte Stammwürze: 9 °P
+\hspace{1cm}Angestrebte Stammwürze: \SI{666}{\plato}
 %
 %Hopfung
 \paragraph{Hopfung:}
-	\begin{tabular}[t]{m{2cm} m{5cm} m{0.5cm} m{1cm} m{0.5cm} m{1cm}}
-		Bitterhopen: & Magnum & 10 & g & 12,2 & \% $\alpha$ \\
-		%Aromahopfen: & & & g & &  \% $\alpha$
+	\begin{tabular}[t]{m{2.5cm} m{5cm} m{0.8cm} m{1cm} m{0.8cm} m{1cm}}
+		Bitterhopen: & Hopfenname & \num{666} & \si{\gram} & \num{666} & \si{\alfa} \\
+		Aromahopfen: & Hopfenname & \num{666} & \si{\gram} & \num{666} & \si{\alfa}
 	\end{tabular}\\
 
 \vspace{.25cm}
-\hspace{1cm}Errechnete Bittere: 32 IBU
+\hspace{1cm}Errechnete Bittere: \SI{666}{\IBU}
 %
 %Hefe
-\paragraph{Hefe:}
-	Safbrew US-05
-%
+\paragraph{Hefe:} 
+	Hefename
+
+\pagebreak[3]
 %Sudverlauf
 \subsection*{Sudverlauf - Infusionsverfahren}	
 %
@@ -81,31 +101,34 @@ pdfauthor={Stephan Mertens},
 \paragraph{Maischen:}
 	\begin{tabbing}\hspace{1cm} \=
 		\hspace{1cm} \= \hspace{1cm} \=\hspace{1cm} \=\hspace{1cm} \=\hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \kill
-		\> 8l vorlegen bei 64$^\circ C$.\\
-		%\> \> Aufheizen auf 35$^ \circ C$.\\
-		%\> \textit{Gummi/Glucanaserast} für Minuten von - Uhr.\\
-		%\> \> Aufheizen auf 44$^\circ C$.\\
-		%\> \textit{Ferulasäurerast} für Minuten von - Uhr.\\
-		%\> \> Aufheizen auf 52$^\circ C$.\\
-		%\> \textit{Eiweisrast} für Minuten von - Uhr.\\
-		%\> \> Aufheizen auf 64\\
-		\> \textit{Maltose-/$\beta$-Amylaserast} für 40 Minuten von 13:10 - 13:55 Uhr.\\
-		\> \> Aufheizen auf 72$^\circ C$.\\
-		\> \textit{Verzuckerungs-/$\alpha$-Amylaserast} für 60 Minuten von 14:05 - 15:05 Uhr.\\
-		\> \> \> Jodprobe: \> \> \Square positiv \> \> \CheckedBox negativ\\
-		\> \> Aufheizen auf 78$^\circ C$.\\
-		\> \textit{Inaktivierungsrast} für 10 Minuten von 15:10 - 15:20 Uhr.\\\\
-		\> Kommentar: \>\>\> Etwas grob geschrotet; Haferflocken erst um 14:40 Uhr zugeben
+		\>\SI{666}{\litre} vorlegen bei \SI{666}{\celsius}.\\
+		\> \>Aufheizen auf \SI{35}{\celsius}.\\
+		\>\textit{Gummi/Glucanaserast} für \SI{666}{\Min} von 666 - 666 Uhr.\\
+		\> \>Aufheizen auf \SI{44}{\celsius}.\\
+		\>\textit{Ferulasäurerast} für \SI{666}{\Min} von 666 - 666 Uhr.\\
+		\> \>Aufheizen auf \SI{52}{\celsius}.\\
+		\>\textit{Eiweisrast} für \SI{666}{\Min} von 666 - 666 Uhr.\\
+		\> \>Aufheizen auf \SI{64}{\celsius}.\\
+		\>\textit{Maltose-/$\beta$-Amylaserast} für \SI{666}{\Min} von 666 - 666 Uhr.\\
+		\> \>Aufheizen auf \SI{72}{\celsius}.\\
+		\>\textit{Verzuckerungs-/$\alpha$-Amylaserast} für \SI{666}{\Min} von 666 - 666 Uhr.\\
+		\> \> \>Jodprobe: \> \> \Square\,positiv \> \> \CheckedBox\,negativ\\
+		\> \>Aufheizen auf \SI{78}{\celsius}.\\
+		\>\textit{Inaktivierungsrast} für \SI{666}{\Min} von 666 - 666 Uhr.
 	\end{tabbing}
+	\begin{adjustwidth}{2cm}{0cm}
+		\hspace{-1cm}Kommentar: Kommentar zum Maischen
+	\end{adjustwidth}
 	\begin{center}
 		\begin{tikzpicture}
 		\begin{axis}[width=1\textwidth,height=0.3\textheight,
 		grid=both,
 		grid style = dashed,
-		xlabel={Zeit (t) / Minuten},
-		ylabel={Temperatur ($\vartheta$) / $^\circ C$},
+		xlabel={Zeit (t) / \si{\Min}},
+		ylabel={Temperatur ($\vartheta$) / \si{\celsius}},
 		xmin=0,		xmax=175,
-		ymin=40,	ymax=100,
+		ymin=40,	ymax=90,
+		legend pos = south east,
 		]
 		\addplot [mark=none, color=blue] table[x=t, y=theta] {maischeverlauf_soll.csv};
 		\addplot [mark=none, color=red] table[x=t, y=theta] {maischeverlauf_ist.csv};
@@ -113,41 +136,46 @@ pdfauthor={Stephan Mertens},
 		\end{axis}
 		\end{tikzpicture}
 		\end{center}
-%
+
+\pagebreak[3]
 %Läutern
-\paragraph{Läutern:} von 14:30 - 16:10 Uhr.
+\paragraph{Läutern:} von 666 - 666 Uhr.
 	\begin{tabbing}
 		\hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \=\hspace{1cm} \=\hspace{1cm} \=\hspace{1cm} \= \kill
-		\> 1l Wasser vorlegen.\\
-		\> \> 1. Nachguss \> \> 3 l\\
-		\> \> 2. Nachguss \> \> 2,5 l\\
-		\> \> \> Aufhacken: \> \> \CheckedBox ja \> \> \Square nein\\\\
-		\> Würze: \> \> \> 3,5$^\circ P$ \> bei \> 77$^\circ C$ \> $\Rightarrow$ \> 10$^\circ P$\\
-		\> Glattwasser: \> \> \> 2$^\circ P$ \> bei \> 48$^\circ C$ \> $\Rightarrow$ \> 4,5$^\circ P$\\\\
-		\> Kommentar: \> \> \> ca. $\frac{3}{4}$l auf den Boden gekippt.
+		\> \SI{666}{\litre} Wasser vorlegen.\\
+		\> \>1. Nachguss \> \> \SI{666}{\litre}\\
+		\> \>2. Nachguss \> \> \SI{666}{\litre}\\
+		\> \> \>Aufhacken: \> \> \CheckedBox\,ja \> \> \Square\,nein\\
+		\> \>2. Nachguss \> \> \SI{666}{\litre}\\\\
+		\>Würze: \> \> \> \SI{666}{\plato} bei \SI{666}{\celsius} $\Rightarrow$ \SI{666}{\plato}\\
+		\>Glattwasser: \> \> \> \SI{666}{\plato} bei \SI{666}{\celsius} $\Rightarrow$ \SI{666}{\plato}
 	\end{tabbing}
-%
+	\begin{adjustwidth}{2cm}{0cm}
+		\hspace{-1cm}Kommentar: Kommentar zum Läutern
+	\end{adjustwidth}
+
+\pagebreak[3]
 %Würzekochung
-\paragraph{Würzekochung:} für 60 Minuten von 16:25 - 17:28 Uhr.
-	\begin{tabbing}
-		\hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \kill
-		\> 100g geriebener Ingwer 15 Minuten vor Kochende zugegeben und bei Kochende entfernt\\\\
-		\> Kommentar: \> \> \> kein einziges mal übergekocht
-	\end{tabbing}
-%
+\paragraph{Würzekochung:} für \SI{666}{\Min} von 666 - 666 Uhr.
+	\begin{adjustwidth}{2cm}{0cm}
+		\hspace{-1cm}Kommentar: Kommentar zum Kochen.
+	\end{adjustwidth}
+
+\pagebreak[3]
 %Whirpool
-\paragraph{Whirpoolrast:} von 17:32 - 17:55 Uhr.
+\paragraph{Whirpoolrast:} von 666 - 666 Uhr.
 	\begin{tabbing}
 		\hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \hspace{1cm} \= \kill
-		\> 100g geriebener Ingwer in den Whirpool gegeben\\\\
-		\> Kommentar: \> \> \> NT hat einige Ingwerstückchen enthalten\\
-		\> \> \> \> 1l Wasser in die Ausschlagwürze gekippt $\Rightarrow$ 9l\\
-		\> \> $\Rightarrow$ 5$^\circ P$ \> \> bei \> 74$^\circ C$ \> $\Rightarrow$ \> 11$^\circ P$\\
-		\> \> Verdünnen: \> \> \> \> \> $(9l \cdot 11^\circ P)/(9^\circ P)=11l$\\
-		\> \> Sudhausausbeute: \> \> \> \> \> 65 \% mit 11l\\
-		\> \> Geschätzter Alkoholgehalt: \> \> \> \> \> 3,6\% Vol.
+		\>Ausschlagwürze: \> \> \> \> \>  \SI{666}{\plato} bei \SI{666}{\celsius} $\Rightarrow$ \SI{666}{\plato}\\
+		\>Verdünnung: \> \> \> \> \> $(\SI{666}{\litre} \cdot \SI{666}{\plato}) / \SI{666}{\plato} = \SI{666}{\litre}$\\
+		\>Sudhausausbeute: \> \> \> \> \> \SI{666}{\percent}\\
+		\>Geschätzter Alkoholgehalt: \> \> \> \> \> \SI{666}{\percent}\,Vol.
 	\end{tabbing}
-%
+	\begin{adjustwidth}{2cm}{0cm}
+		\hspace{-1cm}Kommentar: Kommentar zum Whirpool.
+	\end{adjustwidth}
+
+\pagebreak[1]
 %Hefegabe
-\paragraph{Hefegabe} und $O_2$-Gabe um 21:30 Uhr.
+\paragraph{Hefegabe} und $O_2$-Gabe um 666 Uhr.
 \end{document}
