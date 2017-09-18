@@ -1,0 +1,18 @@
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[width=1\textwidth,height=0.3\textheight,
+	grid=both,
+	grid style = dashed,
+	xlabel={Zeit (t) / \si{\Min}},
+	ylabel={Temperatur ($\vartheta$) / \si{\celsius}},
+	xmin=0,		xmax=175,
+	ymin=40,	ymax=90,
+	legend pos = south east,
+	title={Temperaturverauf während des Maischens}
+	]
+	\addplot [mark=none, color=blue] table[x=t, y=theta] {maischeverlauf_soll.csv};
+	\addplot [mark=none, color=red] table[x=t, y=theta] {maischeverlauf_ist.csv};
+	\legend{soll,ist}
+	\end{axis}
+	\end{tikzpicture}
+\end{center}

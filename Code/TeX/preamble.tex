@@ -1,0 +1,51 @@
+\documentclass[12pt,oneside,a4paper]{scrartcl}
+%Einstellungen der Seitenraender
+\usepackage[left=1.5cm,right=1.5cm,top=2cm,bottom=2.5cm]{geometry}
+
+\usepackage{ngerman}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage[pdftex]{graphicx}
+
+%Zum Erstellen von Diagrammen
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.7}
+
+\usepackage{bigstrut}
+
+%Hyperlinks innerhalb des PDF Dokuments
+\usepackage[bookmarks,
+ngerman,
+pageanchor,
+hyperindex,
+hidelinks,
+pdffitwindow,
+
+]{hyperref}
+\usepackage{bookmark}
+
+%um text einzufaerben
+\usepackage{color}
+
+%tabular zeug
+\usepackage{dcolumn}
+
+% Fuer zusaetzliche Zeichen
+\usepackage{textcomp}
+\usepackage{wasysym}
+\usepackage{marvosym}
+\usepackage{siunitx}
+\sisetup{
+	locale = DE ,
+	per-mode = symbol
+}
+\DeclareSIUnit[number-unit-product = {\,}]\IBU{IBU}
+\DeclareSIUnit[number-unit-product = {\,}]\plato{^\circ P}
+\DeclareSIUnit[number-unit-product = {\,}]\alfa{\percent\,\alpha}
+\DeclareSIUnit[number-unit-product = { }]\Min{Minuten}
+
+
+% Fuer die Kommentare
+\usepackage{changepage}
+\begin{document}
