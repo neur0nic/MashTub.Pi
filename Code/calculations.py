@@ -2,7 +2,13 @@
 
 
 def spindel(plato, theta):
-    # geeicht auf 20°C
+    """
+    Correction of the hydrometer calibrated to 20°C to the temperature during measurement.
+
+    :param plato:   measured density of wort in °P; float
+    :param theta:   measured temperature of wort in °C; int
+    :return:        calculated 'real' value for the density of the wort in °P; float
+    """
     theta = int(theta)
     temperaturen = list(range(5, 100, 5))
     stammw = list(range(0, 30))
@@ -68,51 +74,95 @@ def spindel(plato, theta):
         [28.1, 28.36, 28.66, 29, 29.38, 29.79, 30.24, 30.71, 31.21, 31.76,
         32.33, 32.93, 33.54, 34.17, 34.83, 35.51, 36.2, 36.92, 37.65]
         ]
-    i = 0
-    j = 0
-    while theta > temperaturen[i]:
-        i += 1
-    while plato > stammw[j]:
-        j += 1
+    i, j = 0, 0
+    while theta > temperaturen[i]: i += 1
+    while plato > stammw[j]: j += 1
     plato_echt = table[j][i]
     plato_echt = round(plato_echt, 1)
     return plato_echt
 
 
 def mischungskreuz(vol_ist, stammw_ist, stammw_soll):
+    """
+    Calculates the amount of water that needs to be added if the density of the wort is too
+    high to get gt the wanted density.
+
+    :param vol_ist:     current volume of the wort in liter; float
+    :param stammw_ist:  current density of the wort in °P; float
+    :param stammw_soll: wanted density of the wirt in °P; float
+    :return:            the volume after thining down the wort with water; float
+    """
     vol_soll = (vol_ist * stammw_ist) / stammw_soll
     vol_soll = round(vol_soll, 1)
     return vol_soll
 
 
 def sudhausausbeute(vol_ist, extrakt, schuettung):
-    #gilt für 20°C
+    """
+    The sudhausausbeute is a value of efficiency to show how much starch of the malt was
+    converted to dissolvable sugar in the wort.
+
+    :param vol_ist:     final volume of the wort in liter at 20°C; float
+    :param extrakt:     final density of the wort in °P at 20°C; float
+    :param schuettung:  amount of malt used in kg; float
+    :return:            the efficiency of the brewing process in %; float
+    """
     ausbeute = (vol_ist * extrakt) / schuettung
     ausbeute = round(ausbeute, 1)
     return ausbeute
 
 
-def stammw(schuettung, vol, gesch_sudhausausbeute):
-    # Zu erwartende Stammwürze
+def stammw(schuettung, vol, gesch_sudhausausbeute = 60):
+    """
+    Estimates the density of the wort, to help writing the recipe.
+
+    :param schuettung:              amount of malt in kg; float
+    :param vol:                     wanted amount of wort in liter; float
+    :param gesch_sudhausausbeute:   estimated efficiency of the brewing process in %; float
+    :return:                        density of the wort in °P; float
+    """
     extrakt = (gesch_sudhausausbeute * schuettung) / vol
     return extrakt
 
 
 def alkoholgehalt(extrakt, restextrakt):
+    """
+    Estimates the amount of alcohol in the finished beer.
+
+    :param extrakt:         density of word before fermentation in °P; float
+    :param restextrakt:     density of the finished beer in °P; float
+                                (normally in description of the yeast)
+    :return:                amount of alcohol in %Vol; float
+    """
     alkohol = ((0.81 * (extrakt - restextrakt)) / 2.0665) / 0.789
     alkohol = round(alkohol, 1)
     return alkohol
 
 
-def zucker(co2menge):
-    # Annahme 1: Bei Raumtemperatur sind 2g CO2 geloest.
-    # Angaben sind g/l
+def zucker(co2menge = 5):
+    """
+    Estimates the needed amount of sugar to add for a specific amount of CO2.
+    Assumption: already 2g of CO2 solved in 20°C beer
+
+    :param co2menge:    amount of CO2 wanted in the finished beer in g/l; float
+    :return:            maount of sugar to add in g/l; float
+    """
     zuckergabe = (co2menge - 2) / 0.46285991
     zuckergabe = round(zuckergabe, 1)
     return zuckergabe
 
 
 def ibu(hopfenmenge, alphasaeure, kochdauer, ausschlagwuerze, vol):
+    """
+    Calculates the amount of alpha-acids/IBUs added to the beer for every hop separately.
+
+    :param hopfenmenge:     amount of hops in g; float
+    :param alphasaeure:     concentration of alpha-acids in the hops in %; float
+    :param kochdauer:       duration the hops is boiled in minutes; int
+    :param ausschlagwuerze: final density of the wort in °P; float
+    :param vol:             final volume of the wort in liter; float
+    :return:                the IBUs; float
+    """
     kochzeiten = [5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 100, 120]
     platos = [
         8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25
@@ -137,27 +187,22 @@ def ibu(hopfenmenge, alphasaeure, kochdauer, ausschlagwuerze, vol):
         [2.9, 5.3, 7.2, 8.8, 11.2, 12.8, 13.9, 14.6, 15.1, 15.4, 15.8, 15.9],
         [2.8, 5.1, 6.9, 8.5, 10.8, 12.3, 13.3, 14.0, 14.5, 14.8, 15.1, 15.3]
         ]
-    i = 0
-    while kochdauer > kochzeiten[i]:
-        i += 1
-    kochdauer = kochzeiten[i]
-    #print(kochdauer)
-    j = 0
-    while ausschlagwuerze > platos[j]:
-        j += 1
-    ausschlagwuerze = platos[j]
-    #print(ausschlagwuerze)
+    i, j = 0, 0
+    while kochdauer > kochzeiten[i]: i += 1
+    while ausschlagwuerze > platos[j]: j += 1
     ausnutzung = ausnutzungsgrad[j][i]
     be = (hopfenmenge * alphasaeure * ausnutzung) / (10 * vol)
     be = round(be, 1)
     return be
 
-u = 'Stammwürze: ' + str(spindel(10, 80)) + ' °P\n'
-v = 'Zuckergabe zum Jungbier: ' + str(zucker(5.5)) + ' g/l\n'
-w = 'Volumen der Anstellwürze: ' + str(mischungskreuz(9, 11, 10)) + ' l\n'
-x = 'Sudhausausbeute: ' + str(sudhausausbeute(11, 9, 1.55)) + ' %\n'
-x2 = 'Erwartete Stammwürze: ' + str(stammw(2.4, 10, 60)) + '°P\n'
-y = 'Alkoholgehalt: ' + str(alkoholgehalt(13, 3)) + ' %Vol\n'
-z = 'Bitter: ' + str(ibu(20, 7.1, 51, 9.5, 10)) + ' IBU'
 
-print('---\n', u, v, w, x, x2, y, z)
+if __name__ == '__main__':
+    u = 'Stammwürze: %s °P\n' % spindel(10, 80)
+    w = 'Volumen der Anstellwürze: %s l\n' % mischungskreuz(9, 11, 10)
+    x = 'Sudhausausbeute: %s %%\n' % sudhausausbeute(11, 9, 1.55)
+    x2 = 'Erwartete Stammwürze: %s °P\n' % stammw(2.4, 10, 60)
+    y = 'Alkoholgehalt: %s %%Vol\n' % alkoholgehalt(13, 3)
+    v = 'Zuckergabe zum Jungbier: %s g/l\n' % zucker(5.5)
+    z = 'Bitter: %s IBU' % ibu(20, 7.1, 51, 9.5, 10)
+
+    print('---\n', u, v, w, x, x2, y, z)
