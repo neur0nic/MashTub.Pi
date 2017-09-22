@@ -1,72 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="utf-8">
 
-    <title>MashTub.Pi</title>
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <title>NewIDE</title>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-    <!-- jQuery and Bootstrap -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  </head>
+  <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+  <link rel="shortcut icon" href="favicon.ico">
+  <!--link rel="apple-touch-icon" href="/apple-touch-icon.png"-->
+  <link rel="stylesheet" type="text/css" href="../static/mtpi.css">
+  <script type="text/javascript" src="mtpi.js"></script>
+</head>
 
-  <script>
-    $(document).ready(function(){
-      setInterval(function(){
-        $("#screen").load("/get_temperature")
-      }, 2000);
+<body>
+  <div>
+    <header>
+      <h1 id="headerView"><img src="icon.svg" alt="Hopsberry" height="70px" style="vertical-align:-40%">MashTub.Pi</h1>
+    </header>
+    <ul class="myNav">
+		<li class="myNav"><a href="#" onclick="startView()">Start</a></li>
+	    <li class="myNav"><a href="#" onclick="tubView()">MashTub.Pi</a></li>
+	    <li class="myNav"><a href="#" onclick="beerView()">Beers</a></li>
+	    <li class="myNav"><a href="#" onclick="exitView()">Exit</a></li>
+   	</ul>
+  </div>
 
-      $('#btnSignUp').click(function(){
-        $.ajax({
-          url: "/set_temperature",
-          data: $("form").serialize(),
-          type: "POST",
-          success: function(response){
-            console.log(response);
-          },
-          error: function(error){
-            console.log(error);
-          }
-        });
-      });
+  <!--Views-->
+  <div class="row" id="Views">
+  	<!--mainView-->
+  	<div class="column main" id="mainView">
+  		mainView
+  	</div>
+  	<!--infoView-->
+  	<div class="column info" id="infoView">
+  		infoView
+  	</div>
+  </div>
 
-    });
-
-    function Edit(elm) {
-      console.log($(elm).attr('data-id'));
-    }
-  </script>
-
-  <body>
-    <div class="container">
-      <div class="header">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="/show_select_beer">Add beer</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">MashTub.Pi</h3>
-      </div>
-    </div>
-
-    <div class="list-group">
-      <a data-id="1" onclick="Edit(this)" class="list-group-item">Helles</a>
-      <a data-id="2" onclick="Edit(this)" class="list-group-item">Pils</a>
-    </div>
-
-    <p>Current temperature</p>
-    <div id="screen"></div>
-    <form id="set_temp">
-      Set teperature:<br>
-      <input type="number" name="temperature" min="1" max="90">
-      <button id="btnSignUp" type="button">Set temperature</button>
-    </form>
-
-  </body>
-
+</body>
 </html>
