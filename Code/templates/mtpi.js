@@ -221,5 +221,171 @@ function nachguss() {
 }
 
 function createRecipe() {
-    document.getElementById('mainView').innerHTML='<iframe src="form.html" class="frameless"></iframe>';
+    document.getElementById('mainView').innerHTML=`
+    <form>
+        <h1>Rezept</h1>
+        <label for="beerName">Biername: <input type="text" class="field name" id="beerName" name="beerName" placeholder="Name"></label>
+    
+    
+        <label>Style: 
+        <input type="text" class="field name" name="beerStyles" list="beerStyles" placeholder="Style">
+        <datalist id="beerStyles">
+            <option>Dortmunder</option>
+            <option>Münchner Hell</option>
+            <option>Weißbier</option>
+            <option>Pils</option>
+            <option>Pale Lager</option>
+            <option>Zwickl</option>
+            <option>Kellerbier</option>
+            <option>Landbier</option>
+            <option>Festbier</option>
+            <option>Märzen</option>
+            <option>Münchner Dunkel</option>
+            <option>Tmavý</option>
+            <option>IPA</option>
+            <option>Dunkles Weißbier</option>
+            <option>American Pale Ale</option>
+            <option>Světlý</option>
+            <option>Belgian Strong Ale</option>
+            <option>Heller Bock</option>
+            <option>Maibock</option>
+            <option>Dunkler Doppelbock</option>
+            <option>Belgian Strong Ale</option>
+            <option>Imperial Stout</option>
+            <option>Rotbier</option>
+            <option>Rauchbier</option>
+            <option>Weizenbock</option>
+            <option>Imperial IPA</option>
+            <option>Schwarzbier</option>
+            <option>Kölsch</option>
+            <option>Belgian Ale</option>
+            <option>Altbier</option>
+            <option>Blond Ale</option>
+            <option>Porter</option>
+            <option>Kristallweizen</option>
+            <option>ESB</option>
+            <option>Saison</option>
+            <option>Sour Ale</option>
+            <option>Witbier</option>
+            <option>Baltic Porter</option>
+            <option>Dunkler Bock</option>
+            <option>Stout</option>
+            <option>Traditional Ale</option>
+            <option>Abbey Double</option>
+            <option>Abbey Triple</option>
+            <option>Quadrupel</option>
+            <option>Fruit Beer</option>
+            <option>Irish Ale</option>
+            <option>Amber Ale</option>
+            <option>English Strong Ale</option>
+            <option>Black IPA</option>
+            <option>Brown Ale</option>
+            <option>Session IPA</option>
+            <option>Dry Stout</option>
+            <option>Gose</option>
+            <option>Gurken Gose</option>
+            <option>Imperial Porter</option>
+            <option>Leichte Weiße</option>
+            <option>Sweet Stout</option>
+            <option>Eisbock</option>
+            <option>English Pale Ale</option>
+            <option>Weizen Ale</option>
+            <option>Barley Wine</option>
+            <option>Malt Liquor</option>
+            <option>Fruchtbier</option>
+            <option>India Style Lager</option>
+            <option>Bitter</option>
+            <option>Old Lager</option>
+            <option>Berliner Weiße</option>
+            <option>Polotmavý</option>
+            <option>Faro</option>
+            <option>Gueuze</option>
+            <option>Cream Ale</option>
+            <option>Scotch Ale</option>
+            <option>Gotlandsdricke</option>
+            <option>Lambic</option>
+                    
+            <option><input type="text" placeholder="other beer style"/></option>
+        </datalist>
+        </label>
+        
+        
+        <br/><br/>
+        Schüttung:
+        <button type="button" class="incrembtn" onclick="addMalt();">+</button>
+        <button type="button" class="incrembtn" onclick="subMalt();">-</button>
+        <br/><br/>
+        <span id="schuettung" name="schuettung"><script>window.onload=schuettung();</script></span>
+        
+        Gesamtgewicht: ______ kg <br/><br/>
+        
+        
+        Hopfung:
+        <button type="button" class="incrembtn" onclick="addHops();">+</button>
+        <button type="button" class="incrembtn" onclick="subHops();">-</button>
+        <br/><br/>
+        <span id="hopfung" name="hopfung"><script>window.onload=hopfung();</script></span>
+        <br/>
+        <div style="float: right;">
+            <button type="button" class="bttns" onclick="startIBU();" style="height: 30px; width: auto; margin-right: 4px;">IBU Rechner</button>
+        </div>
+        
+        
+        
+        <label>Hefe: 
+        <input type="text" class="field name" name="hefe" list="hefe" placeholder="Hefe">
+        <datalist id="hefe">
+            <option>SafAle BE-134</option>
+            <option>Saf-Ale S-04</option>
+            <option>Saf-Ale US-05</option>
+            <option>SafAle T-58</option>
+            <option>SafAle S-33</option>
+            <option>SafAle K-97</option>
+            <option>SafAle WB-06</option>
+            <option>SafAle BE-256</option>
+            <option>SafAle F-2</option>
+            <option>SafLager S-23</option>
+            <option>SafLager S-189</option>
+            <option>SafLager W-34/70</option>
+            
+            <option><input type="text" placeholder="other yeast"/></option>
+        </datalist>
+        </label>
+            
+    
+        <br/><br/>
+        Maischen:
+        <button type="button" class="incrembtn" onclick="addRest();">+</button>
+        <button type="button" class="incrembtn" onclick="subRest();">-</button>
+        <br/><br/>
+        <span id="rest" name="rest"><script>window.onload=rest();</script></span>
+        <br/>
+        
+        
+        Nachgüsse:
+        <button type="button" class="incrembtn" onclick="addNachguss();">+</button>
+        <button type="button" class="incrembtn" onclick="subNachguss();">-</button>
+        <br/><br/>
+        <span id="nachguss" name="nachguss"><script>window.onload=nachguss();</script></span>
+        <br/>
+        
+        <div style="float: right;">
+            <button type="button" class="bttns" onclick="window.alert('verworfen');" style="height: 30px; width: auto; margin-right: 4px;">Abbrechen</button>
+            <button type="button" class="bttns" onclick="window.alert('PDF wurde erstellt');" style="height: 30px; width: auto; margin-right: 4px;">PDF erstellen</button>
+            <button type="button" class="bttns" onclick="window.alert('gespeichert');" style="height: 30px; width: auto; margin-right: 4px;">Speichern</button>
+        </div>
+        
+    </form>`;
+}
+
+function startIBU() {
+    //window.alert("Test");
+    document.getElementById('infoView').innerHTML=`
+    <h2>IBU Rechner</h2>
+    Menge: <input type="text" class="field nmbr" name="gHopfen" placeholder="0"> g <br/>
+    Alpha-Säure: <input type="text" class="field nmbr" name="alpha" placeholder="0"> %alpha<br/>
+    Kochdauer: <input type="text" class="field nmbr" name="kochDauer" placeholder="0"> min<br/>
+    Stammwürze: <input type="text" class="field nmbr" name="stammW" placeholder="0"> °P<br/>
+    <hr>
+    IBU: _____ IBU`;
 }
