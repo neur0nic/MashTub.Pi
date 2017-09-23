@@ -23,18 +23,18 @@ function startView(){
 function tubView(){
     document.getElementById('mainView').innerHTML=
     	`Sud Nr. 18 läuft seit 3h 22m.
-    	<script type="text/javascript" src="canvasjs.min.js"></script>
-		<script type="text/javascript" src="linechart.js"></script>
-		<div id="chartContainer">?</div>`;
+		<div id="chartContainer" style="height=50%;"></div>`;
+    theChart();    
 		
     document.getElementById('headerView').innerHTML=
     '<img src="icon.svg" alt="Hopsberry" height="70px" style="vertical-align:-40%">MashTub.Pi';
+    
     document.getElementById('infoView').innerHTML=
     	`<h3>Manuelle Bedienung</h3>
 			Rührer:
 			<input type="range" min="0" max="5" value="0" step="0.5" onchange="showValue(this.value)" />
 			<span id="range">0</span> U/min
-			<br/><br/>\
+			<br/><br/>
 			Heizung:
 			<label class="switch">
 			  <input type="checkbox">
@@ -49,7 +49,7 @@ function tubView(){
 function beerView(){
     document.getElementById('mainView').innerHTML=
     	`<input type="text" class="beerSearch" id="beerSeachInput" onkeyup="filterBeers()" placeholder="Search for a beer..." title="Search a beer">
-    	\
+    	
     	<ul class="beerSearch" id="beerList">
     		<li class="beerSearch"><a href="#" onclick="beerDetail()">Münchner Hell</a></li>
     		<li class="beerSearch"><a href="#" onclick="beerDetail()">Münchner Dunkel</a></li>
@@ -388,4 +388,129 @@ function startIBU() {
     Stammwürze: <input type="text" class="field nmbr" name="stammW" placeholder="0"> °P<br/>
     <hr>
     IBU: _____ IBU`;
+}
+
+// Charts
+// Line Chart for the mashing process
+function theChart(){
+    window.alert("2");
+	var chart = new CanvasJS.Chart("chartContainer", {
+		animationEnabled: true,
+		axisX: {
+			title: 'Zeit / Minuten',titleFontColor: 'black',
+			titleFontSize: 16,
+			titleFontFamily: "Courier New",
+			minimum: 0,
+			//gridDashType: 'longDash',
+			labelFontColor: 'black',
+			labelFontSize: 14,
+			labelFontFamily: "Courier New",
+			gridColor: 'grey',
+			gridThickness: 1,
+			tickColor: 'black',
+            interval: 10,
+            lineColor: 'black'
+		},
+		axisY: {
+			title: 'Temperatur / °C',
+			titleFontColor: 'black',
+			titleFontSize: 16,
+			titleFontFamily: "Courier New",
+			minimum: 20,
+			maximum: 90,
+			gridDashType: 'longDash',
+			gridColor: 'grey',
+			gridThickness: 1,
+			labelFontColor: 'black',
+			labelFontSize: 14,
+			labelFontFamily: "Courier New",
+			tickColor: 'black',
+            interval: 5,
+            lineColor: 'black' 
+		},
+		
+		toolTip:{
+	        enabled: true,       
+	        animationEnabled: true
+	  	},
+		data: [
+		{
+			type: "line",
+			showInLegend: true,
+			lineThickness: 2,
+			name: "Soll",
+			markerType: "none",
+			color: "#FF0000",
+			dataPoints: [
+			{x: 0, y: 20},
+                        {x: 44, y: 64},
+                        {x: 84, y: 64},
+                        {x: 90, y: 72},
+                        {x: 150, y: 72},
+                        {x: 156, y: 78},
+                        {x: 166, y: 78}
+			]
+		},
+		{
+			type: "line",
+			showInLegend: true,
+			lineThickness: 2,
+			name: "Ist",
+			markerType: "none",
+			color: "#00FF00",
+			dataPoints: [
+			{x: 0, y: 23},
+			{x: 5, y: 25},
+			{x: 10, y: 35},
+			{x: 15, y: 41},
+			{x: 20, y: 43},
+			{x: 25, y: 50},
+			{x: 30, y: 55},
+			{x: 35, y: 62},
+			{x: 40, y: 58},
+			{x: 45, y: 64},
+			{x: 50, y: 64},
+			{x: 55, y: 64},
+			{x: 60, y: 62},
+			{x: 65, y: 61},
+			{x: 70, y: 65},
+			{x: 75, y: 66},
+			{x: 80, y: 63},
+			{x: 85, y: 63},
+			{x: 90, y: 68},
+			{x: 95, y: 73},
+			{x: 100, y: 71},
+			{x: 105, y: 70},
+			{x: 110, y: 72},
+			{x: 115, y: 72},
+			{x: 120, y: 71},
+			{x: 125, y: 71},
+			{x: 130, y: 73},
+			{x: 135, y: 72},
+			{x: 140, y: 72},
+			{x: 150, y: 71},
+			{x: 155, y: 71},
+			{x: 160, y: 78},
+			{x: 165, y: 79},
+			{x: 170, y: 78}
+			]
+		}
+                ],
+		legend: {
+			verticalAlign: "center",
+        	horizontalAlign: "right",
+			cursor: "pointer",
+			itemclick: function (e) {
+					if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+							e.dataSeries.visible = false;
+					}
+					else {
+							e.dataSeries.visible = true;
+					}
+			chart.render();
+			}
+		}
+	});
+	
+	chart.render();
 }
