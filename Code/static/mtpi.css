@@ -1,6 +1,7 @@
 body {
     font-family: "Courier New", Courier, monospace;
     margin: 0;
+    font-size: 20px;
 }
 
 header{
@@ -159,7 +160,7 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #FF00000;
+  box-shadow: 0 0 1px #FF0000;
 }
 
 input:checked + .slider:before {
@@ -225,20 +226,79 @@ li.beerSearch a:hover:not(.header) {
     display: inline-block;
     font-size: 20px;
     position:relative;
-    margin: -80% -40%; 
+    /*margin: -80% -40%; 
     top: 50%; 
-    left: 50%;
+    left: 50%;*/
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
     vertical-align: middle;
-    horizontal-align: middle;
+    width: 80%;
+    height: 80%;
+}
+
+.kachel:hover {
+    background-color: #292626;
+    color: white;
     width: 80%;
     height: 80%;
 }
 
 
-.kachel:hover {
+/* Recipe Buttons */
+.field{
+    font-size: 20px; /* Increase font-size */
+    padding: 12px 12px 12px 12px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */    
+}
+
+.field.nmbr{
+    width: 70px;
+}
+
+.field.name{
+    width: 300px;
+}
+
+.incrembtn{
+    background-color: #5c5c5c;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    vertical-align: middle;
+    height: 25px;
+    width: 25px;
+}
+
+.incrembtn:hover{
+    background-color: #292626;
+    color: white;
+}
+
+.bttns {
+    background-color: #5c5c5c;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    position:relative;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    vertical-align: middle;
+    width: 80%;
+    height: 80%;
+}
+
+.bttns:hover {
     background-color: #292626;
     color: white;
     width: 80%;
