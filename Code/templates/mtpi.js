@@ -1,5 +1,19 @@
 function startView(){
-    document.getElementById('mainView').innerHTML='startView';
+    document.getElementById('mainView').innerHTML=' \
+    <div class="row"> \
+		<div class="column tile"> \
+			<button class="kachel" onclick="beerView()">Rezept laden</button> \
+		</div> \
+		<div class="column tile"> \
+			<button class="kachel">Rezept erstellen</button> \
+		</div> \
+		<div class="column tile"> \
+			<button class="kachel">Manuelle Bedienung</button> \
+		</div> \
+		<div class="column tile"> \
+			<button class="kachel" onclick="exitView()">Exit</button> \
+		</div> \
+	</div>';
     document.getElementById('headerView').innerHTML=
     '<img src="icon.svg" alt="Hopsberry" height="70px" style="vertical-align:-40%">Start';
     document.getElementById('infoView').innerHTML=
@@ -26,8 +40,10 @@ function tubView(){
 			  <input type="checkbox"> \
 			  <span class="slider round"></span> \
 			</label><br/><br/> \
-			Alarm / Fehler: \
-			';
+			Alarm / Fehler: <svg width="24px" height="24px"> \
+			<circle r="11" cx="12" cy="12" stroke="#000000" stroke-width="1" fill="#FFFFFF"> \
+			<animate attributeType="XML" attributeName="fill" values="#800;#f00;#800;#800" \
+			dur="0.8s" repeatCount="indefinite"/> </circle> </svg>';
     }
 
 function beerView(){

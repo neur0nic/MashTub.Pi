@@ -1,4 +1,4 @@
-body {
+cbody {
     font-family: "Courier New", Courier, monospace;
     margin: 0;
 }
@@ -55,6 +55,12 @@ li.myNav a:hover {
 	width: 25%;
 }
 
+.column.tile{
+	background-color: #F8F8FF;
+	width: 50%;
+	height: 200px;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -66,6 +72,35 @@ li.myNav a:hover {
     clear: both;
 }
 
+/* Buttons as Tiles */
+
+.kachel {
+    background-color: #5c5c5c;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+/*    position:relative;
+    margin: -80% -40%; 
+    top: 50%; 
+    left: 50%;*/
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+/*    vertical-align: middle;
+    horizontal-align: middle;*/
+    width: 98%;
+    height: 98%;
+}
+
+.kachel:hover {
+    background-color: #292626;
+    color: white;
+    width: 98%;
+    height: 98%;
+}
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media (max-width: 600px) {
     .column.side, .column.middle {
@@ -144,7 +179,7 @@ input:checked + .slider:before {
 
 /* For the beer searching bar*/
 input.beerSearch{
-    background-image: url('../searchicon.svg'); /* Add a search icon to input */
+    background-image: url('../templates/searchicon.svg'); /* Add a search icon to input */
     background-position: 10px 15px; /* Position the search icon */
     background-size: 20px 20px;
     background-repeat: no-repeat; /* Do not repeat the icon image */
@@ -178,4 +213,34 @@ li.beerSearch a:hover:not(.header) {
 
 * {
   box-sizing: border-box;
+}
+
+/* Buttons as Tiles*/
+.kachel {
+    background-color: #5c5c5c;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    position:relative;
+    margin: -80% -40%; 
+    top: 50%; 
+    left: 50%;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    vertical-align: middle;
+    horizontal-align: middle;
+    width: 80%;
+    height: 80%;
+}
+
+
+.kachel:hover {
+    background-color: #292626;
+    color: white;
+    width: 80%;
+    height: 80%;
 }

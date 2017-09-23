@@ -1,2 +1,7 @@
-flask
-tornado
+﻿Python Dependencies (source):
+    flask (pip)
+    tornado (pip)
+
+Javascript Dependencies (source):
+    CanvasJS (https://canvasjs.com/download-html5-charting-graphing-library/)
+    
