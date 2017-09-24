@@ -36,7 +36,7 @@ function startView(){
 function tubView(){
     document.getElementById('mainView').innerHTML=
     	`Sud Nr. 18 läuft seit 3h 22m.
-		<div id="chartContainer" style="height=50%;"></div>`;
+		<div id="chartContainer"></div>`;
     theChart();    
 		
     document.getElementById('headerView').innerHTML=
@@ -44,15 +44,17 @@ function tubView(){
     
     document.getElementById('infoView').innerHTML=
     	`<h3>Manuelle Bedienung</h3>
-			Rührer:
-			<input type="range" min="0" max="5" value="0" step="0.5" onchange="showValue(this.value)" />
-			<span id="range">0</span> U/min
+			Rührer: <span id="range">0</span> U/min <br/>
+			<input type="range" min="0" max="5" value="0" step="0.5" onchange="showValue(this.value)" style="width: 100%"/>
 			<br/><br/>
-			Heizung:
-			<label class="switch">
+            
+			Heizung: 78°C<br/>
+			Aus <label class="switch">
 			  <input type="checkbox">
 			  <span class="slider round"></span>
-			</label><br/><br/>
+			</label> An
+            <br/><br/>
+            
 			Alarm / Fehler: <svg width="24px" height="24px">
 			<circle r="11" cx="12" cy="12" stroke="#000000" stroke-width="1" fill="#FFFFFF">
 			<animate attributeType="XML" attributeName="fill" values="#800;#f00;#800;#800"
@@ -73,7 +75,8 @@ function beerView(){
     		<li class="beerSearch"><a href="#" onclick="beerDetail()">Maibock</a></li></ul>`;
     document.getElementById('headerView').innerHTML=
     '<img src="icon.svg" alt="Hopsberry" height="70px" style="vertical-align:-40%">Beers';
-    document.getElementById('infoView').innerHTML='<p>Beer infoView</p>';
+    document.getElementById('infoView').innerHTML=`
+    <button type="button" onclick="createRecipe()" class="bttns">Rezept erstellen</button>`;
     }
 
 function exitView(){
@@ -134,52 +137,55 @@ function schuettung() {
     // Add lines of malt to form
     code = '';
     for (i = 1; i <= maltLines; i++) {
-        code += '<input type="text" class="field name" placeholder="Malz"/> <input type="text"  class="field nmbr" placeholder="0"/> kg<br/>';    
+        code += `
+        <input type="text" class="field name" list="malzsorten" placeholder="Malz"/>
+            <datalist id="malzsorten">
+             		<option>Pilsener Malz extra hell</option>
+                    <option>Pilsener Malz</option>
+                    <option>Pale Ale Malz</option>
+                    <option>Wiener Malz</option>
+                    <option>Münchner Malz</option>
+                    <option>Weizenmalz hell</option>
+                    <option>Weizenmalz dunkel</option>
+                    <option>Weizen Caramelmalz</option>
+                    <option>Barke Pilsener Malz</option>
+                    <option>Barke Wiener Malz</option>
+                    <option>Barke Münchner Malz</option>
+                    <option>Abbey Malt</option>
+                    <option>Special W</option>
+                    <option>Roggenmalz Hell</option>
+                    <option>Dinkelmalz</option>
+                    <option>Carapils</option>
+                    <option>Carahell</option>
+                    <option>Carared</option>
+                    <option>Caraamber</option>
+                    <option>Caramünch</option>
+                    <option>Caraaroma</option>
+                    <option>Carabelge</option>
+                    <option>Carabohemian</option>
+                    <option>Carawheat</option>
+                    <option>Cararye</option>
+                    <option>Carafa</option>
+                    <option>Carafa Spezial</option>
+                    <option>Weizenröstmalz</option>
+                    <option>Roggenröstmalz</option>
+                    <option>Dinkelröstmalz</option>
+                    <option>Röstroggen</option>
+                    <option>Röstgerste</option>
+                    <option>Buchenrauch-Gerstenmalz</option>
+                    <option>Eichenrauch-Weizenmalz</option>
+                    <option>Sauermalz</option>
+                    <option>Melanoidinmalz</option>
+                    <option>Weizenröstmalz</option>
+                    <option>Gerstendiastasemalz</option>
+                    <option>Weizendiastasemalz</option>
+            </datalist>
+        
+        
+        <input type="text"  class="field nmbr" placeholder="0"/> kg<br/>`;    
     }
     document.getElementById('schuettung').innerHTML=code;
 }
-
-/*
- 		<option>Pilsener Malz extra hell</option>
-		<option>Pilsener Malz</option>
-		<option>Pale Ale Malz</option>
-		<option>Wiener Malz</option>
-		<option>Münchner Malz</option>
-		<option>Weizenmalz hell</option>
-		<option>Weizenmalz dunkel</option>
-		<option>Weizen Caramelmalz</option>
-		<option>Barke Pilsener Malz</option>
-		<option>Barke Wiener Malz</option>
-		<option>Barke Münchner Malz</option>
-		<option>Abbey Malt</option>
-		<option>Special W</option>
-		<option>Roggenmalz Hell</option>
-		<option>Dinkelmalz</option>
-		<option>Carapils</option>
-		<option>Carahell</option>
-		<option>Carared</option>
-		<option>Caraamber</option>
-		<option>Caramünch</option>
-		<option>Caraaroma</option>
-		<option>Carabelge</option>
-		<option>Carabohemian</option>
-		<option>Carawheat</option>
-		<option>Cararye</option>
-		<option>Carafa</option>
-		<option>Carafa Spezial</option>
-		<option>Weizenröstmalz</option>
-		<option>Roggenröstmalz</option>
-		<option>Dinkelröstmalz</option>
-		<option>Röstroggen</option>
-		<option>Röstgerste</option>
-		<option>Buchenrauch-Gerstenmalz</option>
-		<option>Eichenrauch-Weizenmalz</option>
-		<option>Sauermalz</option>
-		<option>Melanoidinmalz</option>
-		<option>Weizenröstmalz</option>
-		<option>Gerstendiastasemalz</option>
-		<option>Weizendiastasemalz</option>
- */
 
 function addHops() {
     // More hops button
@@ -420,6 +426,7 @@ function theChart(){
 	var chart = new CanvasJS.Chart("chartContainer", {
 		animationEnabled: true,
         backgroundColor: null,
+        
 		axisX: {
 			title: 'Zeit / Minuten',titleFontColor: 'black',
 			titleFontSize: 16,
@@ -535,6 +542,5 @@ function theChart(){
 			}
 		}
 	});
-	
 	chart.render();
 }
