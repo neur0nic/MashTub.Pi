@@ -8,7 +8,8 @@ var maltLines = 1,
     rests = 1,
     nachguesse = 1,
     code,
-    screenHeight = screen.availHeight;
+    screenHeight = screen.availHeight,
+    IBUs = 0;
 
 /* Functions to change the two divisions 'mainView' and 'infoView' */
 function startView(){
@@ -182,7 +183,7 @@ function schuettung() {
             </datalist>
         
         
-        <input type="text"  class="field nmbr" placeholder="0"/> kg<br/>`;    
+        <input type="number"  class="field nmbr" placeholder="0"/> kg<br/>`;    
     }
     document.getElementById('schuettung').innerHTML=code;
 }
@@ -200,10 +201,88 @@ function subHops() {
 }
 
 function hopfung(){
-    // Add lines of hops to form
+    // Add lines of hops to form (copied from ushops.org)
     code = '';
     for (i = 1; i <= hopsLines; i++) {
-         code += '<input type="text" class="field name" placeholder="Hopfen"/> <input type="text" class="field nmbr" placeholder="0"/> g<br/>';    
+         code += `<input type="text" class="field name" list="hops" placeholder="Hopfen"/>
+            <datalist id="hops">
+                <option>Ahtanum</option>
+                <option>AlphAroma</option>
+                <option>Amarillo</option>
+                <option>Apollo</option>
+                <option>Azacca</option>
+                <option>Bitter Gold</option>
+                <option>Bravo</option>
+                <option>Brewers Gold</option>
+                <option>Bullion</option>
+                <option>CTZ</option>
+                <option>Calypso</option>
+                <option>Cashmere</option>
+                <option>Centennial</option>
+                <option>Chelan</option>
+                <option>Chinook</option>
+                <option>Citra</option>
+                <option>Cluster</option>
+                <option>Columbia</option>
+                <option>Columbus</option>
+                <option>Comet</option>
+                <option>Crystal</option>
+                <option>Delta</option>
+                <option>Denali</option>
+                <option>Ekuanot Brand</option>
+                <option>El Dorado</option>
+                <option>Eroica</option>
+                <option>Eureka!</option>
+                <option>First Gold</option>
+                <option>Fuggle</option>
+                <option>Galena</option>
+                <option>Glacier</option>
+                <option>Golding</option>
+                <option>Hallertauer</option>
+                <option>Horizon</option>
+                <option>Idaho 7</option>
+                <option>Jarrylo</option>
+                <option>Lemondrop</option>
+                <option>Liberty</option>
+                <option>Magnum</option>
+                <option>Meridian</option>
+                <option>Millennium</option>
+                <option>Maosaic</option>
+                <option>Mt. Hood</option>
+                <option>Mt. Rainier</option>
+                <option>Newport</option>
+                <option>Northern Brewer</option>
+                <option>Nugget</option>
+                <option>Olympic</option>
+                <option>Palisade</option>
+                <option>Pekko</option>
+                <option>Perle</option>
+                <option>Saaz</option>
+                <option>Santiam</option>
+                <option>Serebrianka</option>
+                <option>Simcoe</option>
+                <option>Sorachi Ace</option>
+                <option>Spalter</option>
+                <option>Sterling</option>
+                <option>Strissel Spalt</option>
+                <option>Summit</option>
+                <option>Super Galena</option>
+                <option>Tahoma</option>
+                <option>Talisman</option>
+                <option>Teamaker</option>
+                <option>Tettnanger</option>
+                <option>Tillicum</option>
+                <option>Tomahawk</option>
+                <option>Topaz</option>
+                <option>Triple Pearl</option>
+                <option>Ultra</option>
+                <option>Vanguard</option>
+                <option>Warrior</option>
+                <option>Willamette</option>
+                <option>Yakima Gold</option>
+                <option>Zeus</option>
+            </datalist>
+         <input type="number" class="field nmbr" placeholder="0"/> g<br/>`;    
     }
     document.getElementById('hopfung').innerHTML=code;
 }
@@ -224,7 +303,7 @@ function rest() {
     // Add lines of rests to form
     code = '';
     for (i = 1; i <= rests; i++) {
-        code += i + '. Rast: <input type="text" class="field nmbr" placeholder="Temp."/>°C für <input type="text" class="field nmbr" placeholder="Zeit"/> min<br/>';    
+        code += i + '. Rast: <input type="number" class="field nmbr" placeholder="Temp."/>°C für <input type="number" class="field nmbr" placeholder="Zeit"/> min<br/>';    
     }
     document.getElementById('rest').innerHTML=code;
 }
@@ -245,7 +324,7 @@ function nachguss() {
     // Add lines of nachguss to form
     code = '';
     for (i = 1; i <= nachguesse; i++) {
-        code += i + '. Nachguss: <input type="text" class="field nmbr" placeholder="0"/> L<br/>';    
+        code += i + '. Nachguss: <input type="number" class="field nmbr" placeholder="0"/> L<br/>';    
     }
     document.getElementById('nachguss').innerHTML=code;
 }
@@ -413,12 +492,25 @@ function startIBU() {
     // IBU calculator
     document.getElementById('infoView').innerHTML=`
     <h2 title="Berechnet die Bittere (Iso-Alphasäure), die ein Hopfen an die Würze abgibt.">IBU Rechner</h2>
-    <span title="Der Gewicht des Hopfens in Gram.">Menge: </span><input type="text" class="field nmbr" name="gHopfen" placeholder="0"> g <br/>
-    <span title="Die Konzentration von Alphasäure im Hopfen in Prozent.">Alpha-Säure: </span><input type="text" class="field nmbr" name="alpha" placeholder="0"> %mass<br/>
-    <span title="Die Dauer, in der der Hopfen mitgekocht wird.">Kochdauer: </span><input type="text" class="field nmbr" name="kochDauer" placeholder="0"> min<br/>
-    <span title="Die Stammwürze, die in der Anstellwürze (zum Ende des Kochens) zu erwarten ist.">Stammwürze: </span><input type="text" class="field nmbr" name="stammW" placeholder="0"> °P<br/>
+    <span title="Der Gewicht des Hopfens in Gram.">Menge: </span><input type="number" class="field nmbr" name="gHopfen" id="gHopfen" placeholder="0"> g <br/>
+    <span title="Die Konzentration von Alphasäure im Hopfen in Prozent.">Alpha-Säure: </span><input type="number" class="field nmbr" name="alpha" id="alpha" placeholder="0"> %mass<br/>
+    <span title="Die Dauer, in der der Hopfen mitgekocht wird.">Kochdauer: </span><input type="number" class="field nmbr" name="kochDauer" id="kochDauer" placeholder="0"> min<br/>
+    <span title="Die Stammwürze, die in der Anstellwürze (zum Ende des Kochens) zu erwarten ist.">Stammwürze: </span><input type="number" class="field nmbr" name="stammW" id="stammW" placeholder="0"> °P<br/>
+    <span title="">Volumen: </span><input type="number" class="field nmbr" name="volWurze" id="volWurze" placeholder="0"> L <br/>
     <hr>
-    <span title="Die Bittere des Bieres in IBU (International Bitter Units)">IBU: </span>_____ IBU`;
+    <span title="Die Bittere des Bieres in IBU (International Bitter Units)">IBU: </span>_</span> IBU <span id="valueIBU">`;
+    window.onload=window.setInterval(calcIBU(),5000);
+}
+
+function calcIBU() {
+    IBUs = document.getElementById("gHopfen").value + document.getElementById("alpha").value + document.getElementById("kochDauer").value + document.getElementById("stammW").value + document.getElementById("volWurze").value;
+    window.alert("1");
+    document.getElementById("valueIBU").innerHTML=IBUs;
+}
+
+function keepCalc() {
+    window.alert("1");
+    window.setInterval(calcIBU, 500);    
 }
 
 function theChart(){
