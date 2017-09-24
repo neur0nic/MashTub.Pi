@@ -7,7 +7,8 @@ var maltLines = 1,
     hopsLines = 1,
     rests = 1,
     nachguesse = 1,
-    code;
+    code,
+    screenHeight = screen.availHeight;
 
 /* Functions to change the two divisions 'mainView' and 'infoView' */
 function startView(){
@@ -405,13 +406,13 @@ function createRecipe() {
 function startIBU() {
     // IBU calculator
     document.getElementById('infoView').innerHTML=`
-    <h2>IBU Rechner</h2>
-    Menge: <input type="text" class="field nmbr" name="gHopfen" placeholder="0"> g <br/>
-    Alpha-Säure: <input type="text" class="field nmbr" name="alpha" placeholder="0"> %alpha<br/>
-    Kochdauer: <input type="text" class="field nmbr" name="kochDauer" placeholder="0"> min<br/>
-    Stammwürze: <input type="text" class="field nmbr" name="stammW" placeholder="0"> °P<br/>
+    <h2 title="Berechnet die Bittere (Iso-Alphasäure), die ein Hopfen an die Würze abgibt.">IBU Rechner</h2>
+    <span title="Der Gewicht des Hopfens in Gram.">Menge: </span><input type="text" class="field nmbr" name="gHopfen" placeholder="0"> g <br/>
+    <span title="Die Konzentration von Alphasäure im Hopfen in Prozent.">Alpha-Säure: </span><input type="text" class="field nmbr" name="alpha" placeholder="0"> %mass<br/>
+    <span title="Die Dauer, in der der Hopfen mitgekocht wird.">Kochdauer: </span><input type="text" class="field nmbr" name="kochDauer" placeholder="0"> min<br/>
+    <span title="Die Stammwürze, die in der Anstellwürze (zum Ende des Kochens) zu erwarten ist.">Stammwürze: </span><input type="text" class="field nmbr" name="stammW" placeholder="0"> °P<br/>
     <hr>
-    IBU: _____ IBU`;
+    <span title="Die Bittere des Bieres in IBU (International Bitter Units)">IBU: </span>_____ IBU`;
 }
 
 function theChart(){
