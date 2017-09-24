@@ -1,3 +1,15 @@
+/* mtpi.js is the JS file for the MashTub.Pi web interface.
+www.mashtub-pi.de, github.com/neur0nic/MashTub.Pi
+*/
+
+// Variables
+var maltLines = 1,
+    hopsLines = 1,
+    rests = 1,
+    nachguesse = 1,
+    code;
+
+/* Functions to change the two divisions 'mainView' and 'infoView' */
 function startView(){
     document.getElementById('mainView').innerHTML=`
     <div class="row">
@@ -8,7 +20,7 @@ function startView(){
 			<button class="kachel" onclick="createRecipe()">Rezept erstellen</button>
 		</div>
 		<div class="column tile">
-			<button class="kachel">Manuelle Bedienung</button>
+			<button class="kachel" onclick="tubView()">Manuelle Bedienung</button>
 		</div>
 		<div class="column tile">
 			<button class="kachel" onclick="exitView()">Exit</button>
@@ -74,7 +86,11 @@ function exitView(){
     alert(txt);
     }
 
+
+/* Functions called within the Views */
+
 function filterBeers() {
+    // Filter the list of beers in beerMainView
     var input, filter, ul, li, a, i;
     input = document.getElementById("beerSeachInput");
     filter = input.value.toUpperCase();
@@ -86,40 +102,38 @@ function filterBeers() {
             li[i].style.display = "";
         } else {
             li[i].style.display = "none";
-
         }
     }
 }
 
 function beerDetail() {
+    // Show details of selected beer in beerInfoView
 	document.getElementById('infoView').innerHTML='<h3>Beer Name</h3><br/>Style: Beer style<br/>Last Used: Date<br/>ABV: ABV<br>';
 }
 
-function showValue(newValue)
-{
+function showValue(newValue){
+    // Shows current value of the slide bar in beerInfoView
 	document.getElementById("range").innerHTML=newValue;
 }
 
-var maltLines = 1,
-    hopsLines = 1,
-    rests = 1,
-    nachguesse = 1,
-    code;
-
+/* Funktions for the recipe form */
 function addMalt() {
+    // More malt button
     maltLines++;
     schuettung();
 }
 
 function subMalt() {
+    // Less malt button
     maltLines--;
     schuettung();
 }
 
 function schuettung() {
+    // Add lines of malt to form
     code = '';
     for (i = 1; i <= maltLines; i++) {
-        code += '<input type="text" class="field name" placeholder="Malz"/> <input type="text"  class="field nmbr" placeholder="Menge"/> kg<br/>';    
+        code += '<input type="text" class="field name" placeholder="Malz"/> <input type="text"  class="field nmbr" placeholder="0"/> kg<br/>';    
     }
     document.getElementById('schuettung').innerHTML=code;
 }
@@ -167,34 +181,40 @@ function schuettung() {
  */
 
 function addHops() {
+    // More hops button
     hopsLines++;
     hopfung();
 }
 
 function subHops() {
+    // Less hops button
     hopsLines--;
     hopfung();
 }
 
 function hopfung(){
+    // Add lines of hops to form
     code = '';
     for (i = 1; i <= hopsLines; i++) {
-         code += '<input type="text" class="field name" placeholder="Hopfen"/> <input type="text" class="field nmbr" placeholder="Menge"/> g<br/>';    
+         code += '<input type="text" class="field name" placeholder="Hopfen"/> <input type="text" class="field nmbr" placeholder="0"/> g<br/>';    
     }
     document.getElementById('hopfung').innerHTML=code;
 }
 
 function addRest() {
+    // More rests button
     rests++;
     rest();
 }
 
 function subRest() {
+    // Less rests button
     rests--;
     rest();
 }
 
 function rest() {
+    // Add lines of rests to form
     code = '';
     for (i = 1; i <= rests; i++) {
         code += i + '. Rast: <input type="text" class="field nmbr" placeholder="Temp."/>°C für <input type="text" class="field nmbr" placeholder="Zeit"/> min<br/>';    
@@ -203,24 +223,28 @@ function rest() {
 }
 
 function addNachguss() {
+    // More nachguss button
     nachguesse++;
     nachguss();
 }
 
 function subNachguss() {
+    // less nachguss button
     nachguesse--;
     nachguss();
 }
 
 function nachguss() {
+    // Add lines of nachguss to form
     code = '';
     for (i = 1; i <= nachguesse; i++) {
-        code += i + '. Nachguss: <input type="text" class="field nmbr" placeholder="Menge"/> L<br/>';    
+        code += i + '. Nachguss: <input type="text" class="field nmbr" placeholder="0"/> L<br/>';    
     }
     document.getElementById('nachguss').innerHTML=code;
 }
 
 function createRecipe() {
+    // Recipe creation tool
     document.getElementById('mainView').innerHTML=`
     <form>
         <h1>Rezept</h1>
@@ -379,7 +403,7 @@ function createRecipe() {
 }
 
 function startIBU() {
-    //window.alert("Test");
+    // IBU calculator
     document.getElementById('infoView').innerHTML=`
     <h2>IBU Rechner</h2>
     Menge: <input type="text" class="field nmbr" name="gHopfen" placeholder="0"> g <br/>
@@ -390,12 +414,11 @@ function startIBU() {
     IBU: _____ IBU`;
 }
 
-// Charts
-// Line Chart for the mashing process
 function theChart(){
-    window.alert("2");
+    // Line Chart for the mashing process
 	var chart = new CanvasJS.Chart("chartContainer", {
 		animationEnabled: true,
+        backgroundColor: null,
 		axisX: {
 			title: 'Zeit / Minuten',titleFontColor: 'black',
 			titleFontSize: 16,
