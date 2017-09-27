@@ -12,7 +12,7 @@ var maltLines = 1,
     IBUs = 0;
 
 /* Functions to change the two divisions 'mainView' and 'infoView' */
-function startView(){
+function startView() {
     document.getElementById('mainView').innerHTML=`
     <div class="row">
 		<div class="column tile">
@@ -34,7 +34,7 @@ function startView(){
     'by Stephan Mertens<br> With special thanks to Clemens Weninger';
     }
 
-function tubView(){
+function tubView() {
     document.getElementById('mainView').innerHTML=
     	`Sud Nr. 18 läuft seit 3h 22m.
 		<div id="chartContainer"></div>`;
@@ -62,7 +62,7 @@ function tubView(){
 			dur="0.8s" repeatCount="indefinite"/> </circle> </svg>`;
     }
 
-function beerView(){
+function beerView() {
     document.getElementById('mainView').innerHTML=
     	`<input type="text" class="beerSearch" id="beerSeachInput" onkeyup="filterBeers()" placeholder="Search for a beer..." title="Search a beer">
     	
@@ -80,7 +80,7 @@ function beerView(){
     <button type="button" onclick="createRecipe()" class="bttns">Rezept erstellen</button>`;
     }
 
-function exitView(){
+function exitView() {
     var txt;
     if (confirm("Do you really want to quit?") === true) {
         txt = "Bye!";
@@ -116,7 +116,7 @@ function beerDetail() {
 	document.getElementById('infoView').innerHTML='<h3>Beer Name</h3><br/>Style: Beer style<br/>Last Used: Date<br/>ABV: ABV<br>';
 }
 
-function showValue(newValue){
+function showValue(newValue) {
     // Shows current value of the slide bar in beerInfoView
 	document.getElementById("range").innerHTML=newValue;
 }
@@ -513,7 +513,7 @@ function keepCalc() {
     window.setInterval(calcIBU, 500);    
 }
 
-function theChart(){
+function theChart() {
     // Line Chart for the mashing process
 	var chart = new CanvasJS.Chart("chartContainer", {
 		animationEnabled: true,
