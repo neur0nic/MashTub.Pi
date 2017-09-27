@@ -44,7 +44,14 @@ function tubView() {
     '<img src="icon.svg" alt="Hopsberry" height="70px" style="vertical-align:-40%">MashTub.Pi';
     
     document.getElementById('infoView').innerHTML=
-    	`<h3>Manuelle Bedienung</h3>
+    	`<svg width="24px" height="24px" style="display: inline-block; vertical-align: middle;">
+			<circle r="12" cx="12" cy="12" stroke="#000000" stroke-width="0" fill="#FFFFFF">
+			<animate attributeType="XML" attributeName="fill" values="#800;#f00;#800;#800"
+			dur="0.8s" repeatCount="indefinite"/> </circle> </svg> <a href="#" onclick="window.alert('Maischen Fertig!')">Meldung</a><br/>
+        <h3>Aktuelle Rast</h3>
+        Temperatur: <input type="number"  class="field nmbr" value="78"/>°C<br/>
+        Dauer: <input type="number"  class="field nmbr" value="10"/> min
+        <h3>Manuelle Bedienung</h3>
 			Rührer: <span id="range">0</span> U/min <br/>
 			<input type="range" min="0" max="5" value="0" step="0.5" onchange="showValue(this.value)" style="width: 100%"/>
 			<br/><br/>
@@ -54,12 +61,7 @@ function tubView() {
 			  <input type="checkbox">
 			  <span class="slider round"></span>
 			</label> An
-            <br/><br/>
-            
-			Alarm / Fehler: <svg width="24px" height="24px">
-			<circle r="11" cx="12" cy="12" stroke="#000000" stroke-width="1" fill="#FFFFFF">
-			<animate attributeType="XML" attributeName="fill" values="#800;#f00;#800;#800"
-			dur="0.8s" repeatCount="indefinite"/> </circle> </svg>`;
+            <br/><br/>`;
     }
 
 function beerView() {
@@ -580,7 +582,7 @@ function theChart() {
 			lineThickness: 2,
 			name: "Ist",
 			markerType: "none",
-			color: "#00FF00",
+			color: "#0000FF",
 			dataPoints: [
 			{x: 0, y: 23},
 			{x: 5, y: 25},
