@@ -1,7 +1,3 @@
-//Data for the infoView
-
-//Recipe
-// Beer styles
 beerStyles = {
   "Dortmunder":[{"comment":"Helles Lagerbier mit leichten brotigen Malznoten; Süffig; leichte blumige Hopfennote; aus der Gegend um Dortmund",
                 "ABV":"4,8-5,2%",
@@ -51,7 +47,7 @@ beerStyles = {
   "Světlý":[{"comment":"Tschechisches Pils; großzügige Verwendung von Saazer-Hopfen; Goldfarben; malzig mit mittlerem bis vollmundigen Körper; bei 10-12°P eingebraut; manchmal zum servieren mit junger Würze gemischt",
                 "ABV":"4,4-5,2%",
                 "IBU":"29-41"}],
-  "Belgian Strong Ale":[{"comment":"Hell bis dunkelbraun; Hopfengeschmack kann von gering bis hoch sein; mittel bis vollmundig; viel Alkohol"
+  "Belgian Strong Ale":[{"comment":"Hell bis dunkelbraun; Hopfengeschmack kann von gering bis hoch sein; mittel bis vollmundig; viel Alkohol",
                 "ABV":"7,8-9,5%",
                 "IBU":"24-40"}],
   "Heller Bock":[{"comment":"golden bis hellbraun oder bernsteinfarben; süß, helles malz und wenig Hopfenaroma",
@@ -63,7 +59,7 @@ beerStyles = {
   "Dunkler Doppelbock":[{"comment":"sollten mit mind. 18°P; dunkle Farbe; sehr vollmundig eventuell mit eine stärkeren alkoholischen Geschmack; geringere Verwendung von Hopfen",
                 "ABV":"7,2-8,5%",
                 "IBU":"24-35"}],
-  "Imperial Stout":[{"comment":"Meist sehr dunkelbraun bis schwarz; sehr malzig, sehr geröstet; dunkle Früchte (Rosinen, Feigen); Schokolade; Bitterkeit ist niedrig bis mäßig"
+  "Imperial Stout":[{"comment":"Meist sehr dunkelbraun bis schwarz; sehr malzig, sehr geröstet; dunkle Früchte (Rosinen, Feigen); Schokolade; Bitterkeit ist niedrig bis mäßig",
                 "ABV":"8,4-10,7%",
                 "IBU":"50-80"}],
   "Rotbier":[{"comment":"rötliche Farbe; Karmell-Note; geringe Mengen an Hopfen; malziger Körper",
@@ -72,10 +68,11 @@ beerStyles = {
   "Rauchbier":[{"comment":"Mit über Buchenholz geräuchertes Malz; Whiskymalt wird über Torf geräuchert",
                 "ABV":"5-6,6%",
                 "IBU":"20-35"}],
-  "Weizenbock":[{"comment":"Starkes, dunkleres Weißbier; typischerweise mit einem hohen Esterprofil und mehr Malz und Alkohol"
+  "Weizenbock":[{"comment":"Starkes, dunkleres Weißbier; typischerweise mit einem hohen Esterprofil und mehr Malz und Alkohol",
                 "ABV":"6,7-8%",
                 "IBU":"18-27"}],
-  "Imperial IPA":[{         "ABV":"",
+  "Imperial IPA":[{"comment":"",
+                "ABV":"",
                 "IBU":""}],
   "Schwarzbier":[{"comment":"Dunkelbraun bis schwarz; mittelstarke Vollmundigkeit; Röstmalz; leichte Süße im Aroma und Geschmack; niedrige bis mittlere Bittere; Ester",
                 "ABV":"4,7-5,4%",
@@ -89,7 +86,7 @@ beerStyles = {
   "Altbier":[{"comment":"Gut gehopft, malzig mit einer Kupfer bis dunkelbraunen Farbe; gebürtig vom Niederrhein; wird bei 15-20 ° C vergoren",
                 "ABV": "4,8-5,7%",
                 "IBU": "29-45"}],
-  "Porter":[{"comment":"Dunkelbraune bis fast schwarze Farbe; oft gut gehopft; sehr malzig; leichte Süße; leichte Karamellnote; Bittere von mild beis stark"
+  "Porter":[{"comment":"Dunkelbraune bis fast schwarze Farbe; oft gut gehopft; sehr malzig; leichte Süße; leichte Karamellnote; Bittere von mild beis stark",
                 "ABV":"4,8-6,2%",
                 "IBU":"25-40"}],
   "Kristallweizen":[{"comment":"filtrierte Version vom Weißbier; leuchtende, goldene Farbe; spritzig Karbonisiert; Weizennoten; Bananen-, Kaugummi- und Nelkennoten; schlanker Körper",
@@ -98,13 +95,13 @@ beerStyles = {
   "ESB":[{"comment":"In England meist auf traditionelle Weise aus dem Fass serviert",
                 "ABV": "4,7-5,3%",
                 "IBU": "31-46"}],
-  "Saison":[{"comment":"Fruchtige Ester dominieren das Aroma; klarfiltriert mit einer großen Schaumkrone; Gewürzen und Kräutern können ein komplexes, fruchtiges oder zitrusfrisches Aroma und Geschmack erzeugen; Leicht bis mittelkräftiger Körper mit starker Karbonisierung. Alkoholgehalt ist mittel bis hoch"
+  "Saison":[{"comment":"Fruchtige Ester dominieren das Aroma; klarfiltriert mit einer großen Schaumkrone; Gewürzen und Kräutern können ein komplexes, fruchtiges oder zitrusfrisches Aroma und Geschmack erzeugen; Leicht bis mittelkräftiger Körper mit starker Karbonisierung. Alkoholgehalt ist mittel bis hoch",
                 "ABV":"5,5-7,2%",
                 "IBU":"22-34"}],
   "Witbier":[{"comment":"Witbier; belgisches Weißbier; helle Farbe und unfiltriert; starker Weizen Charakter; Zitronennoten; auch Orangenschale und Koriander",
                 "ABV":"4,5-5,5%",
                 "IBU":"12-20"}],
-  "Baltic Porter":[{"comment":"Stark, süß und untergärig (selten obergärig); nicht so röstig wie Imperial Stouts; intensiver Malzcharakter; mäßig bis starker Alkoholgehalt"
+  "Baltic Porter":[{"comment":"Stark, süß und untergärig (selten obergärig); nicht so röstig wie Imperial Stouts; intensiver Malzcharakter; mäßig bis starker Alkoholgehalt",
                 "ABV":"6,9-8,5%",
                 "IBU":"30-44"}],
   "Dunkler Bock":[{"comment":"tiefe Kupfer- bis dunkelbraune Farbe; mittel bis stark vollmundig; malzige Süße und nussige oder leichte geröstete Aromen; Hopfen Geschmack und Aroma sind leicht bis nicht vorhanden",
@@ -113,13 +110,13 @@ beerStyles = {
   "Stout":[{"comment":"Mit Röstmalz hergestellt; sehr dunkle Farbe; röstiger, malziger Geschmack",
                 "ABV":"4,6-6,3%",
                 "IBU":"27-48"}],
-  "Abbey Double":[{"comment":"Dunkle Farbe; unfiltriert; malzig; hefig; schwer; fruchtig; auch alkoholich"
+  "Abbey Double":[{"comment":"Dunkle Farbe; unfiltriert; malzig; hefig; schwer; fruchtig; auch alkoholich",
                 "ABV":"6,5-8%",
                 "IBU":"20-30"}],
   "Abbey Triple":[{"comment":"stark; hefig; malzig; ausgeprägtes Hopfenprofil; mittel bis starke Bittere; trocken; alkoholisch",
                 "ABV":"8-9,2%",
                 "IBU":"24-37"}],
-  "Quadrupel":[{"comment":"Auch Abt genannt; dunkel; unfiltriert; fruchtige Noten; gegebenfalls Pfirsichnoten; wenig Hopfen; sehr vollmundig; schwer; alkoholisch; hefig"
+  "Quadrupel":[{"comment":"Auch Abt genannt; dunkel; unfiltriert; fruchtige Noten; gegebenfalls Pfirsichnoten; wenig Hopfen; sehr vollmundig; schwer; alkoholisch; hefig",
                 "ABV":"9,8-11,5%",
                 "IBU":"25-35"}],
   "Irish Ale":[{"comment":"Die roten Ales aus Irland haben eine sanfte Malzigkeit, Karamell, erdige Noten und einen allgemein zurückhaltenden Hopfencharakter",
@@ -134,7 +131,7 @@ beerStyles = {
   "Black IPA":[{"comment":"Stark gehopft wie ein IPA; hohen Alkoholgehalt; Röstnote; dunkler Malz Charakter; schlanker als ein Stout; Hopfenstopfen ist üblich",
                 "ABV":"6-7,6%",
                 "IBU":"60-85"}],
-  "Brown Ale":[{"comment":"Farblich zwischen rötlich-braun und dunkelbraun; Zu Brown Ales werden süße Biere mit wenig Alkohol, mittelstarke bernsteinfarbene Ales mit moderater Bitterkeit und malzige, aber hopfige Ales gezählt"
+  "Brown Ale":[{"comment":"Farblich zwischen rötlich-braun und dunkelbraun; Zu Brown Ales werden süße Biere mit wenig Alkohol, mittelstarke bernsteinfarbene Ales mit moderater Bitterkeit und malzige, aber hopfige Ales gezählt",
                 "ABV": "4,8-6%",
                 "IBU": "22-40"}],
   "Session IPA":[{"comment":"beschreibt eine Kategorie von Bieren, die für ihre dominanten Hopfen Geschmacksprofile auf 'sessionable' Alkoholniveaus(i.d.R 3,2-4,6% ABV) vermarktet werden",
@@ -143,19 +140,20 @@ beerStyles = {
   "Dry Stout":[{"comment":"Auch 'Irish-Style' Stout; i.d.R. low-gravity; zurückhaltende Röstaromen; kein Aromahopfen; leichte Säure; niedrige Karbonisierung; sehr feste Schaumkrone",
                 "ABV":"4,2-5,4%",
                 "IBU":"29-40"}],
-  "Gose":[{"comment":"Sauerweizenbier; mit Salz; wenig Alkohol; starker Weizencharakter"
+  "Gose":[{"comment":"Sauerweizenbier; mit Salz; wenig Alkohol; starker Weizencharakter",
                 "ABV":"4-5%",
                 "IBU":"35-55"}],
-  "Grodziskie":[{"comment":"Sauerweizenbier; kann sehr sauer sein; mit Rauchmalz; wenig Alkohol; starker Weizencharakter; auch Grätzer genannt"
+  "Grodziskie":[{"comment":"Sauerweizenbier; kann sehr sauer sein; mit Rauchmalz; wenig Alkohol; starker Weizencharakter; auch Grätzer genannt",
                 "ABV":"4-5%",
                 "IBU":"35-55"}],
-  "Lichtenhainer":[{"comment":"Sauerweizenbier; mit Rauchmalz; wenig Alkohol; starker Weizencharakter"
+  "Lichtenhainer":[{"comment":"Sauerweizenbier; mit Rauchmalz; wenig Alkohol; starker Weizencharakter",
                 "ABV":"4-5%",
                 "IBU":"35-55"}],
   "Gurken Gose":[{"comment":"So ein Scheiß, den der Jan trinkt",
                 "ABV":"",
                 "IBU":""}],
-  "Imperial Porter":[{         "ABV":"",
+  "Imperial Porter":[{"comment":"",
+                "ABV":"",
                 "IBU":""}],
   "Leichte Weiße":[{"comment":"wenig Alkohol; schlanker Körper; eher schwaches Aroma",
                 "ABV":"2-3,5",
@@ -181,12 +179,13 @@ beerStyles = {
   "Malt Liquor":[{"comment":"starke, alkoholische Note, oft schlecht gemachte starkes Lager; Ester; Fuselalkohole",
                 "ABV":"6,9-8,6%",
                 "IBU":"17-60"}],
-  "India Style Lager":[{         "ABV":"",
+  "India Style Lager":[{"comment":"",
+                "ABV":"",
                 "IBU":""}],
   "Bitter":[{"comment":"Eine goldene bis kupferne Farbe; schwach Karbonisierung und mit mittlerer bis hoher Bitterkeit; Hopfen Geschmack und Aroma sind schwach",
                 "ABV": "3,8-4,4%",
                 "IBU":"25-37"}],
-  "Berliner Weiße":[{"comment":"Sehr sauer; viel Weizenaroma; Hopfen kaum wahrnehmbar; niediger Alkoholgehalt"
+  "Berliner Weiße":[{"comment":"Sehr sauer; viel Weizenaroma; Hopfen kaum wahrnehmbar; niediger Alkoholgehalt",
                 "ABV":"3,1-4,5%",
                 "IBU":"4-10"}],
   "Polotmavý":[{"comment":"Bernsteinfarbenes Lager aus Tschechischen; ein Hybrid zwischen dunklen Lager und Pilsner; reicheren Malzcharakter als das Rotbier und mehr Hopfen als ein Märzen",
@@ -207,7 +206,7 @@ beerStyles = {
   "Gotlandsdricke":[{"comment":"Traditioneller Ale-Stil aus Finnland, der schwedischen Insel Gotland und der estnische Insel Saaremaa; stark; aus Roggen- und Gerstenmalz hergestellt; minimaler Hopfencharakter; durch Wacholderzweige gefiltert; starker Hefecharakter; kann mit Backhefe vergoren sein; starker phenolischer Charakter",
                 "ABV":"6-8%",
                 "IBU":"18-35"}],
-  "Lambic":[{"comment":"Unverschnitten; kann mit Früchten im Fass gealtert werden; Oft mit wenig Kohlensäure; spontanvergoren; Oft sehr lange gelagert; mit kantigen Aroman"
+  "Lambic":[{"comment":"Unverschnitten; kann mit Früchten im Fass gealtert werden; Oft mit wenig Kohlensäure; spontanvergoren; Oft sehr lange gelagert; mit kantigen Aroman",
                 "ABV":"6,2%",
                 "IBU":"18"}],
   "California Common":[{"comment":"Bei hohen Temperaturen vergorenes Ale mit starken Fruchtnoten",
@@ -479,13 +478,10 @@ yeasts = {
 
 
 hops = {
-  //https://byo.com/resources/hops
-  //https://ychhops.com/varieties
-  //https://www.usahops.org/hop-finder/
   "Admiral": [{"type":"Bitter",
       "flavor": "citrus, kräutrig",
       "alpha":"13-16%",
-      "oilTotal":"1-1,7",//ml/100g
+      "oilTotal":"1-1,7",
       "subst": ""}],
   "Ahtanum": [{"type":"Aroma",
       "flavor": "erdig, blumig, citrus, harzig",
