@@ -2,13 +2,14 @@
 www.mashtub-pi.de, github.com/neur0nic/MashTub.Pi
 */
 
+// TODO: JS not working in Windows - find out why
 // Variables
 var maltLines = 1,
     hopsLines = 1,
     rests = 1,
     nachguesse = 1,
     code,
-    screenHeight = screen.availHeight,
+//    screenHeight = screen.availHeight,
     IBUs = 0;
 
 /* Functions to change the two divisions 'mainView' and 'infoView' */
@@ -77,18 +78,18 @@ function beerView() {
     		<li class="beerSearch"><a href="#" onclick="beerDetail()">Imperial IPA</a></li>
     		<li class="beerSearch"><a href="#" onclick="beerDetail()">Maibock</a></li></ul>`;
     document.getElementById('headerView').innerHTML=
-    '<img src="icon.svg" alt="Hopsberry" height="70px" style="vertical-align:-40%">Beers';
-    document.getElementById('infoView').innerHTML=`
-    <button type="button" onclick="createRecipe()" class="bttns">Rezept erstellen</button>`;
+        '<img src="icon.svg" alt="Hopsberry" height="70px" style="vertical-align:-40%">Beers';
+    document.getElementById('infoView').innerHTML=
+        '<button type="button" onclick="createRecipe()" class="bttns">Rezept erstellen</button>';
     }
 
 function exitView() {
     var txt;
-    if (confirm("Do you really want to quit?") === true) {
-        txt = "Bye!";
+    if (confirm('Do you really want to quit?') === true) {
+        txt = 'Bye!';
         }
     else {
-        txt = "I knew it!";
+        txt = 'I knew it!';
         }
     alert(txt);
     }
@@ -99,16 +100,17 @@ function exitView() {
 function filterBeers() {
     // Filter the list of beers in beerMainView
     var input, filter, ul, li, a, i;
-    input = document.getElementById("beerSeachInput");
+    input = document.getElementById('beerSeachInput');
     filter = input.value.toUpperCase();
-    ul = document.getElementById("beerList");
-    li = ul.getElementsByTagName("li");
+    ul = document.getElementById('beerList');
+    li = ul.getElementsByTagName('li');
     for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
+        a = li[i].getElementsByTagName('a')[0];
         if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
+            li[i].style.display = '';
+        }
+        else {
+            li[i].style.display = 'none';
         }
     }
 }
@@ -120,7 +122,7 @@ function beerDetail() {
 
 function showValue(newValue) {
     // Shows current value of the slide bar in beerInfoView
-	document.getElementById("range").innerHTML=newValue;
+	document.getElementById('range').innerHTML=newValue;
 }
 
 /* Funktions for the recipe form */
@@ -305,7 +307,7 @@ function rest() {
     // Add lines of rests to form
     code = '';
     for (i = 1; i <= rests; i++) {
-        code += i + '. Rast: <input type="number" class="field nmbr" placeholder="Temp."/>°C für <input type="number" class="field nmbr" placeholder="Zeit"/> min<br/>';    
+        code += i + '. Rast: <input type="number" class="field nmbr" placeholder="0"/>°C für <input type="number" class="field nmbr" placeholder="0"/> min<br/>';    
     }
     document.getElementById('rest').innerHTML=code;
 }
@@ -505,31 +507,31 @@ function startIBU() {
 }
 
 function calcIBU() {
-    IBUs = document.getElementById("gHopfen").value + document.getElementById("alpha").value + document.getElementById("kochDauer").value + document.getElementById("stammW").value + document.getElementById("volWurze").value;
-    window.alert("1");
-    document.getElementById("valueIBU").innerHTML=IBUs;
+    IBUs = document.getElementById('gHopfen').value + document.getElementById('alpha').value + document.getElementById('kochDauer').value + document.getElementById('stammW').value + document.getElementById('volWurze').value;
+    window.alert('1');
+    document.getElementById('valueIBU').innerHTML=IBUs;
 }
 
 function keepCalc() {
-    window.alert("1");
+    window.alert('1');
     window.setInterval(calcIBU, 500);    
 }
 
 function theChart() {
     // Line Chart for the mashing process
-	var chart = new CanvasJS.Chart("chartContainer", {
+	var chart = new CanvasJS.Chart('chartContainer', {
 		animationEnabled: true,
         backgroundColor: null,
         
 		axisX: {
 			title: 'Zeit / Minuten',titleFontColor: 'black',
 			titleFontSize: 16,
-			titleFontFamily: "Courier New",
+			titleFontFamily: 'Courier New',
 			minimum: 0,
 			//gridDashType: 'longDash',
 			labelFontColor: 'black',
 			labelFontSize: 14,
-			labelFontFamily: "Courier New",
+			labelFontFamily: 'Courier New',
 			gridColor: 'grey',
 			gridThickness: 1,
 			tickColor: 'black',
@@ -540,7 +542,7 @@ function theChart() {
 			title: 'Temperatur / °C',
 			titleFontColor: 'black',
 			titleFontSize: 16,
-			titleFontFamily: "Courier New",
+			titleFontFamily: 'Courier New',
 			minimum: 20,
 			maximum: 90,
 			gridDashType: 'longDash',
@@ -548,7 +550,7 @@ function theChart() {
 			gridThickness: 1,
 			labelFontColor: 'black',
 			labelFontSize: 14,
-			labelFontFamily: "Courier New",
+			labelFontFamily: 'Courier New',
 			tickColor: 'black',
             interval: 5,
             lineColor: 'black' 
@@ -560,12 +562,12 @@ function theChart() {
 	  	},
 		data: [
 		{
-			type: "line",
+			type: 'line',
 			showInLegend: true,
 			lineThickness: 2,
-			name: "Soll",
-			markerType: "none",
-			color: "#FF0000",
+			name: 'Soll',
+			markerType: 'none',
+			color: '#FF0000',
 			dataPoints: [
 			{x: 0, y: 20},
                         {x: 44, y: 64},
@@ -577,12 +579,12 @@ function theChart() {
 			]
 		},
 		{
-			type: "line",
+			type: 'line',
 			showInLegend: true,
 			lineThickness: 2,
-			name: "Ist",
-			markerType: "none",
-			color: "#0000FF",
+			name: 'Ist',
+			markerType: 'none',
+			color: '#0000FF',
 			dataPoints: [
 			{x: 0, y: 23},
 			{x: 5, y: 25},
@@ -622,11 +624,11 @@ function theChart() {
 		}
                 ],
 		legend: {
-			verticalAlign: "center",
-        	horizontalAlign: "right",
-			cursor: "pointer",
+			verticalAlign: 'center',
+        	horizontalAlign: 'right',
+			cursor: 'pointer',
 			itemclick: function (e) {
-					if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+					if (typeof (e.dataSeries.visible) === 'undefined' || e.dataSeries.visible) {
 							e.dataSeries.visible = false;
 					}
 					else {
