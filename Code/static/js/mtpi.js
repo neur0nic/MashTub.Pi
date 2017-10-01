@@ -2,7 +2,6 @@
 www.mashtub-pi.de, github.com/neur0nic/MashTub.Pi
 */
 
-// TODO: JS not working in Windows - find out why
 // Variables
 var maltLines = 1,
     hopsLines = 1,
@@ -286,7 +285,8 @@ function hopfung(){
                 <option>Yakima Gold</option>
                 <option>Zeus</option>
             </datalist>
-         <input type="number" class="field nmbr" placeholder="0"/> g<br/>`;    
+         <input type="number" class="field nmbr" placeholder="0"/> g
+         <input type="number" class="field nmbr" placeholder="0"/> %alpha<br/>`;
     }
     document.getElementById('hopfung').innerHTML=code;
 }
@@ -336,7 +336,7 @@ function nachguss() {
 function createRecipe() {
     // Recipe creation tool
     document.getElementById('mainView').innerHTML=`
-    <form>
+    <form method="POST">
         <h1>Rezept</h1>
         <label for="beerName">Biername: <input type="text" class="field name" id="beerName" name="beerName" placeholder="Name"></label>
     

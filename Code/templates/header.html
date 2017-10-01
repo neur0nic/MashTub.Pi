@@ -3,7 +3,7 @@
 <!--TODO: change links to {{vars}} for Flask-->
 <head>
   <meta charset="utf-8">
-  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
        Remove this if you use the .htaccess -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -21,29 +21,20 @@
 </head>
 <header>
   <h1 id="headerView"><img src="{{ url_for('static', filename='images/icon.svg') }}" alt="Hopsberry" height="70px" style="vertical-align:-40%">MashTub.Pi</h1>
+  <div>
+    <ul class="myNav">
+      <li class="myNav"><a href="#" onclick="startView();">Start</a></li>
+      <li class="myNav"><a href="#" onclick="tubView();">MashTub.Pi</a></li>
+      <li class="myNav"><a href="#" onclick="beerView();">Beers</a></li>
+      <li class="myNav"><a href="#" onclick="exitView();">Exit</a></li>
+    </ul>
+  </div>
 </header>
 <body>
   <div>
 
-    <ul class="myNav">
-		  <li class="myNav"><a href="#" onclick="startView();">Start</a></li>
-	    <li class="myNav"><a href="#" onclick="tubView();">MashTub.Pi</a></li>
-	    <li class="myNav"><a href="#" onclick="beerView();">Beers</a></li>
-	    <li class="myNav"><a href="#" onclick="exitView();">Exit</a></li>
-   	</ul>
-  </div>
+    {% block body %} {% endblock %}
 
-  <!--Views-->
-  <div class="row" id="Views">
-  	<!--mainView-->
-  	<div class="column main" id="mainView" style="overflow: auto;">
-  		<script>window.onload=startView();</script>
-  	</div>
-  	<!--infoView-->
-  	<div class="column info" id="infoView" style="overflow: auto;">
-  		infoView
-  	</div>
   </div>
-
 </body>
 </html>

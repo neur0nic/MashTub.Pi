@@ -43,7 +43,7 @@ li.myNav a:hover {
 .column{
 	float: left;
 	padding: 10px;
-	height: 400px;
+	min-height: 100%;
 }
 
 .column.main{
@@ -180,7 +180,7 @@ input:checked + .slider:before {
 
 /* For the beer searching bar*/
 input.beerSearch{
-    background-image: url('../templates/searchicon.svg'); /* Add a search icon to input */
+    background-image: url('../images/searchicon.svg'); /* Add a search icon to input */
     background-position: 10px 15px; /* Position the search icon */
     background-size: 20px 20px;
     background-repeat: no-repeat; /* Do not repeat the icon image */
